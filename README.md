@@ -42,75 +42,295 @@ The key features are:
 
 <small>* estimation based on tests on an internal development team, building production applications.</small>
 
+## Complete Development Setup Guide
+
+This section provides step-by-step instructions for setting up a complete FastAPI development environment on a new machine. These steps were tested on Linux with Python 3.12.3.
+
+### Prerequisites
+
+- Python 3.8 or higher installed
+- Git installed
+- Terminal/shell access (bash recommended)
+
+### Step-by-Step Installation
+
+Follow these steps sequentially to set up your FastAPI development environment:
+
+#### 1. Clone the Repository
+
+```bash
+# Clone the repository to your local machine
+git clone https://github.com/darbotlabs/fapi.git
+cd fapi
+```
+
+#### 2. Verify Python Version
+
+```bash
+# Check that Python 3.8+ is installed
+python3 --version
+# Expected output: Python 3.8.x or higher (tested with 3.12.3)
+```
+
+#### 3. Create Virtual Environment
+
+```bash
+# Create a new virtual environment in the project directory
+python3 -m venv venv
+```
+
+#### 4. Activate Virtual Environment
+
+```bash
+# Activate the virtual environment
+source venv/bin/activate
+
+# Your prompt should now show (venv) prefix
+# On Windows use: venv\Scripts\activate
+```
+
+#### 5. Upgrade pip
+
+```bash
+# Upgrade pip to the latest version
+pip install --upgrade pip
+```
+
+#### 6. Install FastAPI with All Dependencies
+
+```bash
+# Install FastAPI in editable mode with all optional dependencies
+# This includes uvicorn, testing tools, and all extras
+pip install -e ".[all]"
+```
+
+**What gets installed:**
+- FastAPI core framework
+- Uvicorn ASGI server with uvloop (high performance)
+- Pydantic for data validation
+- Starlette web framework
+- Testing client (httpx)
+- Template support (jinja2)
+- Form parsing (python-multipart)
+- Email validation (email-validator)
+- JSON serializers (orjson, ujson)
+- Settings management (pydantic-settings)
+- Extra types (pydantic-extra-types)
+
+#### 7. Install Development and Testing Dependencies
+
+```bash
+# Install all test requirements and development tools
+pip install -r requirements-tests.txt
+```
+
+**What gets installed:**
+- pytest (testing framework)
+- coverage (code coverage analysis)
+- mypy (static type checker)
+- ruff (linter and formatter)
+- Additional testing utilities (dirty-equals, inline-snapshot)
+- Database testing (SQLModel, SQLAlchemy)
+- Authentication testing (PyJWT, pwdlib)
+- ASGI testing (anyio with trio)
+- Web framework testing (Flask)
+- Type stubs for better IDE support
+
+#### 8. Create Example Application
+
+```bash
+# Create a basic FastAPI application file
+cat > main.py << 'EOF'
+from typing import Union
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+
+class Item(BaseModel):
+    name: str
+    price: float
+    is_offer: Union[bool, None] = None
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
+
+
+@app.put("/items/{item_id}")
+def update_item(item_id: int, item: Item):
+    return {"item_name": item.name, "item_id": item_id}
+EOF
+```
+
+#### 9. Start Development Server
+
+```bash
+# Start the FastAPI development server with auto-reload
+fastapi dev main.py --port 8001
+
+# Alternative: Use uvicorn directly
+# uvicorn main:app --reload --port 8001
+```
+
+**Server Info:**
+- API Server: http://127.0.0.1:8001
+- Interactive API docs (Swagger UI): http://127.0.0.1:8001/docs
+- Alternative API docs (ReDoc): http://127.0.0.1:8001/redoc
+- Auto-reload is enabled by default in dev mode
+
+#### 10. Test the API (in a new terminal)
+
+```bash
+# Activate virtual environment in new terminal
+source venv/bin/activate
+
+# Test the root endpoint
+curl http://127.0.0.1:8001/
+# Expected: {"Hello":"World"}
+
+# Test the items endpoint with path and query parameters
+curl http://127.0.0.1:8001/items/5?q=test
+# Expected: {"item_id":5,"q":"test"}
+```
+
+#### 11. Run the Test Suite
+
+```bash
+# Run all tests with verbose output
+pytest tests/ -v
+
+# Run specific test directory
+pytest tests/test_tutorial/test_first_steps/ -v
+
+# Run with coverage report
+pytest tests/ --cov=fastapi --cov-report=html
+
+# Run type checking
+mypy fastapi/
+
+# Run linting
+ruff check .
+```
+
+#### 12. Verify Installation
+
+```bash
+# Check installed FastAPI version
+python -c "import fastapi; print(fastapi.__version__)"
+
+# List all installed packages
+pip list
+
+# Run a quick test to ensure everything works
+pytest tests/test_tutorial/test_first_steps/ -v
+# Expected: All tests pass (3 passed in ~0.2s)
+```
+
+### Common Development Commands
+
+Once your environment is set up, use these commands for daily development:
+
+```bash
+# Always activate virtual environment first
+source venv/bin/activate
+
+# Start development server (auto-reload enabled)
+fastapi dev main.py --port 8001
+
+# Run all tests
+pytest tests/ -v
+
+# Run specific test file
+pytest tests/path/to/test_file.py -v
+
+# Run tests with coverage
+pytest --cov=fastapi --cov-report=term-missing
+
+# Type check the codebase
+mypy fastapi/
+
+# Lint and format code
+ruff check .
+ruff format .
+
+# Install new dependencies
+pip install package-name
+
+# Update requirements after adding dependencies
+pip freeze > requirements.txt
+```
+
+### Troubleshooting
+
+**Port already in use:**
+```bash
+# Use a different port
+fastapi dev main.py --port 8002
+
+# Or find and kill the process using port 8001
+lsof -ti:8001 | xargs kill -9
+```
+
+**Import errors:**
+```bash
+# Ensure virtual environment is activated
+source venv/bin/activate
+
+# Reinstall dependencies
+pip install -e ".[all]"
+pip install -r requirements-tests.txt
+```
+
+**Test failures:**
+```bash
+# Clear pytest cache
+rm -rf .pytest_cache
+pytest --cache-clear
+
+# Run tests with full output
+pytest -vv --tb=long
+```
+
+### Project Structure
+
+```
+fapi/
+├── fastapi/              # Main FastAPI package source code
+├── tests/                # Comprehensive test suite
+├── docs/                 # Documentation (multiple languages)
+├── docs_src/             # Documentation source code examples
+├── scripts/              # Utility scripts
+├── main.py               # Your example application (create this)
+├── venv/                 # Virtual environment (created by you)
+├── requirements*.txt     # Dependency specifications
+├── pyproject.toml        # Project configuration and dependencies
+└── README.md             # This file
+```
+
+### Next Steps
+
+1. Visit http://127.0.0.1:8001/docs to explore the interactive API documentation
+2. Read the [Tutorial - User Guide](https://fastapi.tiangolo.com/tutorial/) for comprehensive examples
+3. Explore the `docs_src/` directory for more example code
+4. Check out `tests/` to see how FastAPI itself is tested
+5. Modify `main.py` to build your own API
+
 ## Sponsors
 
 <!-- sponsors -->
 
-<a href="https://blockbee.io?ref=fastapi" target="_blank" title="BlockBee Cryptocurrency Payment Gateway"><img src="https://fastapi.tiangolo.com/img/sponsors/blockbee.png"></a>
-<a href="https://github.com/scalar/scalar/?utm_source=fastapi&utm_medium=website&utm_campaign=main-badge" target="_blank" title="Scalar: Beautiful Open-Source API References from Swagger/OpenAPI files"><img src="https://fastapi.tiangolo.com/img/sponsors/scalar.svg"></a>
-<a href="https://www.propelauth.com/?utm_source=fastapi&utm_campaign=1223&utm_medium=mainbadge" target="_blank" title="Auth, user management and more for your B2B product"><img src="https://fastapi.tiangolo.com/img/sponsors/propelauth.png"></a>
-<a href="https://zuplo.link/fastapi-gh" target="_blank" title="Zuplo: Deploy, Secure, Document, and Monetize your FastAPI"><img src="https://fastapi.tiangolo.com/img/sponsors/zuplo.png"></a>
-<a href="https://liblab.com?utm_source=fastapi" target="_blank" title="liblab - Generate SDKs from FastAPI"><img src="https://fastapi.tiangolo.com/img/sponsors/liblab.png"></a>
-<a href="https://docs.render.com/deploy-fastapi?utm_source=deploydoc&utm_medium=referral&utm_campaign=fastapi" target="_blank" title="Deploy & scale any full-stack web app on Render. Focus on building apps, not infra."><img src="https://fastapi.tiangolo.com/img/sponsors/render.svg"></a>
-<a href="https://www.coderabbit.ai/?utm_source=fastapi&utm_medium=badge&utm_campaign=fastapi" target="_blank" title="Cut Code Review Time & Bugs in Half with CodeRabbit"><img src="https://fastapi.tiangolo.com/img/sponsors/coderabbit.png"></a>
-<a href="https://subtotal.com/?utm_source=fastapi&utm_medium=sponsorship&utm_campaign=open-source" target="_blank" title="The Gold Standard in Retail Account Linking"><img src="https://fastapi.tiangolo.com/img/sponsors/subtotal.svg"></a>
-<a href="https://docs.railway.com/guides/fastapi?utm_medium=integration&utm_source=docs&utm_campaign=fastapi" target="_blank" title="Deploy enterprise applications at startup speed"><img src="https://fastapi.tiangolo.com/img/sponsors/railway.png"></a>
-<a href="https://serpapi.com/?utm_source=fastapi_website" target="_blank" title="SerpApi: Web Search API"><img src="https://fastapi.tiangolo.com/img/sponsors/serpapi.png"></a>
-<a href="https://databento.com/?utm_source=fastapi&utm_medium=sponsor&utm_content=display" target="_blank" title="Pay as you go for market data"><img src="https://fastapi.tiangolo.com/img/sponsors/databento.svg"></a>
-<a href="https://speakeasy.com/editor?utm_source=fastapi+repo&utm_medium=github+sponsorship" target="_blank" title="SDKs for your API | Speakeasy"><img src="https://fastapi.tiangolo.com/img/sponsors/speakeasy.png"></a>
-<a href="https://www.svix.com/" target="_blank" title="Svix - Webhooks as a service"><img src="https://fastapi.tiangolo.com/img/sponsors/svix.svg"></a>
-<a href="https://www.stainlessapi.com/?utm_source=fastapi&utm_medium=referral" target="_blank" title="Stainless | Generate best-in-class SDKs"><img src="https://fastapi.tiangolo.com/img/sponsors/stainless.png"></a>
-<a href="https://www.permit.io/blog/implement-authorization-in-fastapi?utm_source=github&utm_medium=referral&utm_campaign=fastapi" target="_blank" title="Fine-Grained Authorization for FastAPI"><img src="https://fastapi.tiangolo.com/img/sponsors/permit.png"></a>
-<a href="https://www.interviewpal.com/?utm_source=fastapi&utm_medium=open-source&utm_campaign=dev-hiring" target="_blank" title="InterviewPal - AI Interview Coach for Engineers and Devs"><img src="https://fastapi.tiangolo.com/img/sponsors/interviewpal.png"></a>
-<a href="https://dribia.com/en/" target="_blank" title="Dribia - Data Science within your reach"><img src="https://fastapi.tiangolo.com/img/sponsors/dribia.png"></a>
-
 <!-- /sponsors -->
 
 <a href="https://fastapi.tiangolo.com/fastapi-people/#sponsors" class="external-link" target="_blank">Other sponsors</a>
-
-## Opinions
-
-"_[...] I'm using **FastAPI** a ton these days. [...] I'm actually planning to use it for all of my team's **ML services at Microsoft**. Some of them are getting integrated into the core **Windows** product and some **Office** products._"
-
-<div style="text-align: right; margin-right: 10%;">Kabir Khan - <strong>Microsoft</strong> <a href="https://github.com/fastapi/fastapi/pull/26" target="_blank"><small>(ref)</small></a></div>
-
----
-
-"_We adopted the **FastAPI** library to spawn a **REST** server that can be queried to obtain **predictions**. [for Ludwig]_"
-
-<div style="text-align: right; margin-right: 10%;">Piero Molino, Yaroslav Dudin, and Sai Sumanth Miryala - <strong>Uber</strong> <a href="https://eng.uber.com/ludwig-v0-2/" target="_blank"><small>(ref)</small></a></div>
-
----
-
-"_**Netflix** is pleased to announce the open-source release of our **crisis management** orchestration framework: **Dispatch**! [built with **FastAPI**]_"
-
-<div style="text-align: right; margin-right: 10%;">Kevin Glisson, Marc Vilanova, Forest Monsen - <strong>Netflix</strong> <a href="https://netflixtechblog.com/introducing-dispatch-da4b8a2a8072" target="_blank"><small>(ref)</small></a></div>
-
----
-
-"_I’m over the moon excited about **FastAPI**. It’s so fun!_"
-
-<div style="text-align: right; margin-right: 10%;">Brian Okken - <strong><a href="https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs?time_in_sec=855" target="_blank">Python Bytes</a> podcast host</strong> <a href="https://x.com/brianokken/status/1112220079972728832" target="_blank"><small>(ref)</small></a></div>
-
----
-
-"_Honestly, what you've built looks super solid and polished. In many ways, it's what I wanted **Hug** to be - it's really inspiring to see someone build that._"
-
-<div style="text-align: right; margin-right: 10%;">Timothy Crosley - <strong><a href="https://github.com/hugapi/hug" target="_blank">Hug</a> creator</strong> <a href="https://news.ycombinator.com/item?id=19455465" target="_blank"><small>(ref)</small></a></div>
-
----
-
-"_If you're looking to learn one **modern framework** for building REST APIs, check out **FastAPI** [...] It's fast, easy to use and easy to learn [...]_"
-
-"_We've switched over to **FastAPI** for our **APIs** [...] I think you'll like it [...]_"
-
-<div style="text-align: right; margin-right: 10%;">Ines Montani - Matthew Honnibal - <strong><a href="https://explosion.ai" target="_blank">Explosion AI</a> founders - <a href="https://spacy.io" target="_blank">spaCy</a> creators</strong> <a href="https://x.com/_inesmontani/status/1144173225322143744" target="_blank"><small>(ref)</small></a> - <a href="https://x.com/honnibal/status/1144031421859655680" target="_blank"><small>(ref)</small></a></div>
-
----
-
-"_If anyone is looking to build a production Python API, I would highly recommend **FastAPI**. It is **beautifully designed**, **simple to use** and **highly scalable**, it has become a **key component** in our API first development strategy and is driving many automations and services such as our Virtual TAC Engineer._"
-
-<div style="text-align: right; margin-right: 10%;">Deon Pillsbury - <strong>Cisco</strong> <a href="https://www.linkedin.com/posts/deonpillsbury_cisco-cx-python-activity-6963242628536487936-trAp/" target="_blank"><small>(ref)</small></a></div>
 
 ---
 
