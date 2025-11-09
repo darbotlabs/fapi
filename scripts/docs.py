@@ -58,7 +58,8 @@ def get_en_config() -> Dict[str, Any]:
 
 
 def get_lang_paths() -> List[Path]:
-    return sorted(docs_path.iterdir())
+    # Only return English docs, other languages moved to purgatory
+    return [docs_path / "en"]
 
 
 def lang_callback(lang: Optional[str]) -> Union[str, None]:
@@ -87,23 +88,15 @@ def callback() -> None:
 def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     """
     Generate a new docs translation directory for the language LANG.
+    
+    NOTE: This fork only supports English. Other languages are in purgatory/.
     """
-    new_path: Path = Path("docs") / lang
-    if new_path.exists():
-        typer.echo(f"The language was already created: {lang}")
-        raise typer.Abort()
-    new_path.mkdir()
-    new_config_path: Path = Path(new_path) / mkdocs_name
-    new_config_path.write_text("INHERIT: ../en/mkdocs.yml\n", encoding="utf-8")
-    new_config_docs_path: Path = new_path / "docs"
-    new_config_docs_path.mkdir()
-    en_index_path: Path = en_docs_path / "docs" / "index.md"
-    new_index_path: Path = new_config_docs_path / "index.md"
-    en_index_content = en_index_path.read_text(encoding="utf-8")
-    new_index_content = f"{missing_translation_snippet}\n\n{en_index_content}"
-    new_index_path.write_text(new_index_content, encoding="utf-8")
-    typer.secho(f"Successfully initialized: {new_path}", color=typer.colors.GREEN)
-    update_languages()
+    typer.secho(
+        "This fork only supports English documentation. "
+        "Other languages have been moved to purgatory/docs/",
+        color=typer.colors.YELLOW
+    )
+    raise typer.Abort()
 
 
 @app.command()
@@ -114,7 +107,17 @@ def build_lang(
 ) -> None:
     """
     Build the docs for a language.
+    
+    NOTE: This fork only supports English (en).
     """
+    if lang != "en":
+        typer.secho(
+            f"This fork only supports English documentation. "
+            f"Language '{lang}' is not available (moved to purgatory/docs/)",
+            color=typer.colors.YELLOW
+        )
+        raise typer.Abort()
+    
     insiders_env_file = os.environ.get("INSIDERS_FILE")
     print(f"Insiders file {insiders_env_file}")
     if is_mkdocs_insiders():
@@ -125,16 +128,7 @@ def build_lang(
         raise typer.Abort()
     typer.echo(f"Building docs for: {lang}")
     build_site_dist_path = build_site_path / lang
-    if lang == "en":
-        dist_path = site_path
-        # Don't remove en dist_path as it might already contain other languages.
-        # When running build_all(), that function already removes site_path.
-        # All this is only relevant locally, on GitHub Actions all this is done through
-        # artifacts and multiple workflows, so it doesn't matter if directories are
-        # removed or not.
-    else:
-        dist_path = site_path / lang
-        shutil.rmtree(dist_path, ignore_errors=True)
+    dist_path = site_path
     current_dir = os.getcwd()
     os.chdir(lang_path)
     shutil.rmtree(build_site_dist_path, ignore_errors=True)
@@ -303,31 +297,11 @@ def live(
 
 def get_updated_config_content() -> Dict[str, Any]:
     config = get_en_config()
+    # Only English is supported now, other languages in purgatory
     languages = [{"en": "/"}]
     new_alternate: List[Dict[str, str]] = []
-    # Language names sourced from https://quickref.me/iso-639-1
-    # Contributors may wish to update or change these, e.g. to fix capitalization.
-    language_names_path = Path(__file__).parent / "../docs/language_names.yml"
-    local_language_names: Dict[str, str] = mkdocs.utils.yaml_load(
-        language_names_path.read_text(encoding="utf-8")
-    )
-    for lang_path in get_lang_paths():
-        if lang_path.name in {"en", "em"} or not lang_path.is_dir():
-            continue
-        code = lang_path.name
-        languages.append({code: f"/{code}/"})
-    for lang_dict in languages:
-        code = list(lang_dict.keys())[0]
-        url = lang_dict[code]
-        if code not in local_language_names:
-            print(
-                f"Missing language name for: {code}, "
-                "update it in docs/language_names.yml"
-            )
-            raise typer.Abort()
-        use_name = f"{code} - {local_language_names[code]}"
-        new_alternate.append({"link": url, "name": use_name})
-    new_alternate.append({"link": "/em/", "name": "😉"})
+    # Only add English to alternate languages
+    new_alternate.append({"link": "/", "name": "en - English"})
     config["extra"]["alternate"] = new_alternate
     return config
 
@@ -363,23 +337,10 @@ def verify_config() -> None:
 def verify_non_translated() -> None:
     """
     Verify there are no files in the non translatable pages.
+    
+    NOTE: This fork only supports English, so this check is skipped.
     """
-    print("Verifying non translated pages")
-    lang_paths = get_lang_paths()
-    error_paths = []
-    for lang in lang_paths:
-        if lang.name == "en":
-            continue
-        for non_translatable in non_translated_sections:
-            non_translatable_path = lang / "docs" / non_translatable
-            if non_translatable_path.exists():
-                error_paths.append(non_translatable_path)
-    if error_paths:
-        print("Non-translated pages found, remove them:")
-        for error_path in error_paths:
-            print(error_path)
-        raise typer.Abort()
-    print("No non-translated pages found ✅")
+    print("Skipping non-translated pages check (English only) ✅")
 
 
 @app.command()

@@ -29,3 +29,6 @@ archive.zip
 # macOS
 .DS_Store
 server.log
+
+# Archived non-English documentation
+purgatory/
