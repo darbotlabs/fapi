@@ -85,7 +85,7 @@ plugins:
           preload_modules:
           - httpx
           - starlette
-          inherited_members: true
+          inherited_members: false
           members_order: source
           separate_signature: true
           unwrap_annotated: true
