@@ -1,60 +1,66 @@
-<p align="center">
-  <a href="https://fastapi.tiangolo.com"><img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FastAPI"></a>
-</p>
-<p align="center">
-    <em>FastAPI framework, high performance, easy to learn, fast to code, ready for production</em>
-</p>
-<p align="center">
-<a href="https://github.com/fastapi/fastapi/actions?query=workflow%3ATest+event%3Apush+branch%3Amaster" target="_blank">
-    <img src="https://github.com/fastapi/fastapi/actions/workflows/test.yml/badge.svg?event=push&branch=master" alt="Test">
-</a>
-<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/fastapi" target="_blank">
-    <img src="https://coverage-badge.samuelcolvin.workers.dev/fastapi/fastapi.svg" alt="Coverage">
-</a>
-<a href="https://pypi.org/project/fastapi" target="_blank">
-    <img src="https://img.shields.io/pypi/v/fastapi?color=%2334D058&label=pypi%20package" alt="Package version">
-</a>
-<a href="https://pypi.org/project/fastapi" target="_blank">
-    <img src="https://img.shields.io/pypi/pyversions/fastapi.svg?color=%2334D058" alt="Supported Python versions">
-</a>
-</p>
+# FastAPI
+
+[![FastAPI](https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png)](https://fastapi.tiangolo.com)
+
+*FastAPI framework, high performance, easy to learn, fast to code, ready for
+production*
+
+[![Test](https://github.com/fastapi/fastapi/actions/workflows/test.yml/badge.svg?event=push&branch=master)](https://github.com/fastapi/fastapi/actions?query=workflow%3ATest+event%3Apush+branch%3Amaster)
+[![Coverage](https://coverage-badge.samuelcolvin.workers.dev/fastapi/fastapi.svg)](https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/fastapi)
+[![Package version](https://img.shields.io/pypi/v/fastapi?color=%2334D058&label=pypi%20package)](https://pypi.org/project/fastapi)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/fastapi.svg?color=%2334D058)](https://pypi.org/project/fastapi)
 
 ---
 
-**Documentation**: <a href="https://fastapi.tiangolo.com" target="_blank">https://fastapi.tiangolo.com</a>
+**Documentation**:
+[https://fastapi.tiangolo.com](https://fastapi.tiangolo.com)
 
-**Source Code**: <a href="https://github.com/fastapi/fastapi" target="_blank">https://github.com/fastapi/fastapi</a>
+**Source Code**:
+[https://github.com/fastapi/fastapi](https://github.com/fastapi/fastapi)
 
 ---
 
-FastAPI is a modern, fast (high-performance), web framework for building APIs with Python based on standard Python type hints.
+FastAPI is a modern, fast (high-performance), web framework for building
+APIs with Python based on standard Python type hints.
 
 The key features are:
 
-* **Fast**: Very high performance, on par with **NodeJS** and **Go** (thanks to Starlette and Pydantic). [One of the fastest Python frameworks available](#performance).
-* **Fast to code**: Increase the speed to develop features by about 200% to 300%. *
-* **Fewer bugs**: Reduce about 40% of human (developer) induced errors. *
-* **Intuitive**: Great editor support. <abbr title="also known as auto-complete, autocompletion, IntelliSense">Completion</abbr> everywhere. Less time debugging.
+* **Fast**: Very high performance, on par with **NodeJS** and **Go** (thanks
+  to Starlette and Pydantic).
+  [One of the fastest Python frameworks available](#performance).
+* **Fast to code**: Increase the speed to develop features by about 200% to
+  300%. \*
+* **Fewer bugs**: Reduce about 40% of human (developer) induced errors. \*
+* **Intuitive**: Great editor support. Completion everywhere. Less time
+  debugging.
 * **Easy**: Designed to be easy to use and learn. Less time reading docs.
-* **Short**: Minimize code duplication. Multiple features from each parameter declaration. Fewer bugs.
-* **Robust**: Get production-ready code. With automatic interactive documentation.
-* **Standards-based**: Based on (and fully compatible with) the open standards for APIs: <a href="https://github.com/OAI/OpenAPI-Specification" class="external-link" target="_blank">OpenAPI</a> (previously known as Swagger) and <a href="https://json-schema.org/" class="external-link" target="_blank">JSON Schema</a>.
+* **Short**: Minimize code duplication. Multiple features from each parameter
+  declaration. Fewer bugs.
+* **Robust**: Get production-ready code. With automatic interactive
+  documentation.
+* **Standards-based**: Based on (and fully compatible with) the open standards
+  for APIs: [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (previously
+  known as Swagger) and [JSON Schema](https://json-schema.org/).
 
-<small>* estimation based on tests on an internal development team, building production applications.</small>
+\* estimation based on tests on an internal development team, building
+production applications.
 
 ## Complete Development Setup Guide
 
-This section provides step-by-step instructions for setting up a complete FastAPI development environment on a new machine. These steps were tested on Linux with Python 3.12.3.
+This section provides step-by-step instructions for setting up a complete
+FastAPI development environment on a new machine. These steps were tested on
+Linux with Python 3.12.3.
 
 ### Prerequisites
 
-- Python 3.8 or higher installed
-- Git installed
-- Terminal/shell access (bash recommended)
+* Python 3.8 or higher installed
+* Git installed
+* Terminal/shell access (bash recommended)
 
 ### Step-by-Step Installation
 
-Follow these steps sequentially to set up your FastAPI development environment:
+Follow these steps sequentially to set up your FastAPI development
+environment:
 
 #### 1. Clone the Repository
 
@@ -105,17 +111,18 @@ pip install -e ".[all]"
 ```
 
 **What gets installed:**
-- FastAPI core framework
-- Uvicorn ASGI server with uvloop (high performance)
-- Pydantic for data validation
-- Starlette web framework
-- Testing client (httpx)
-- Template support (jinja2)
-- Form parsing (python-multipart)
-- Email validation (email-validator)
-- JSON serializers (orjson, ujson)
-- Settings management (pydantic-settings)
-- Extra types (pydantic-extra-types)
+
+* FastAPI core framework
+* Uvicorn ASGI server with uvloop (high performance)
+* Pydantic for data validation
+* Starlette web framework
+* Testing client (httpx)
+* Template support (jinja2)
+* Form parsing (python-multipart)
+* Email validation (email-validator)
+* JSON serializers (orjson, ujson)
+* Settings management (pydantic-settings)
+* Extra types (pydantic-extra-types)
 
 #### 7. Install Development and Testing Dependencies
 
@@ -125,16 +132,17 @@ pip install -r requirements-tests.txt
 ```
 
 **What gets installed:**
-- pytest (testing framework)
-- coverage (code coverage analysis)
-- mypy (static type checker)
-- ruff (linter and formatter)
-- Additional testing utilities (dirty-equals, inline-snapshot)
-- Database testing (SQLModel, SQLAlchemy)
-- Authentication testing (PyJWT, pwdlib)
-- ASGI testing (anyio with trio)
-- Web framework testing (Flask)
-- Type stubs for better IDE support
+
+* pytest (testing framework)
+* coverage (code coverage analysis)
+* mypy (static type checker)
+* ruff (linter and formatter)
+* Additional testing utilities (dirty-equals, inline-snapshot)
+* Database testing (SQLModel, SQLAlchemy)
+* Authentication testing (PyJWT, pwdlib)
+* ASGI testing (anyio with trio)
+* Web framework testing (Flask)
+* Type stubs for better IDE support
 
 #### 8. Create Example Application
 
@@ -182,10 +190,11 @@ fastapi dev main.py --port 8001
 ```
 
 **Server Info:**
-- API Server: http://127.0.0.1:8001
-- Interactive API docs (Swagger UI): http://127.0.0.1:8001/docs
-- Alternative API docs (ReDoc): http://127.0.0.1:8001/redoc
-- Auto-reload is enabled by default in dev mode
+
+* API Server: <http://127.0.0.1:8001>
+* Interactive API docs (Swagger UI): <http://127.0.0.1:8001/docs>
+* Alternative API docs (ReDoc): <http://127.0.0.1:8001/redoc>
+* Auto-reload is enabled by default in dev mode
 
 #### 10. Test the API (in a new terminal)
 
@@ -272,6 +281,7 @@ pip freeze > requirements.txt
 ### Troubleshooting
 
 **Port already in use:**
+
 ```bash
 # Use a different port
 fastapi dev main.py --port 8002
@@ -281,6 +291,7 @@ lsof -ti:8001 | xargs kill -9
 ```
 
 **Import errors:**
+
 ```bash
 # Ensure virtual environment is activated
 source venv/bin/activate
@@ -291,6 +302,7 @@ pip install -r requirements-tests.txt
 ```
 
 **Test failures:**
+
 ```bash
 # Clear pytest cache
 rm -rf .pytest_cache
@@ -302,7 +314,7 @@ pytest -vv --tb=long
 
 ### Project Structure
 
-```
+```text
 fapi/
 ├── fastapi/              # Main FastAPI package source code
 ├── tests/                # Comprehensive test suite
@@ -318,8 +330,10 @@ fapi/
 
 ### Next Steps
 
-1. Visit http://127.0.0.1:8001/docs to explore the interactive API documentation
-2. Read the [Tutorial - User Guide](https://fastapi.tiangolo.com/tutorial/) for comprehensive examples
+1. Visit <http://127.0.0.1:8001/docs> to explore the interactive API
+   documentation
+2. Read the [Tutorial - User Guide](https://fastapi.tiangolo.com/tutorial/)
+   for comprehensive examples
 3. Explore the `docs_src/` directory for more example code
 4. Check out `tests/` to see how FastAPI itself is tested
 5. Modify `main.py` to build your own API
@@ -330,30 +344,32 @@ fapi/
 
 <!-- /sponsors -->
 
-<a href="https://fastapi.tiangolo.com/fastapi-people/#sponsors" class="external-link" target="_blank">Other sponsors</a>
+[Other sponsors](https://fastapi.tiangolo.com/fastapi-people/#sponsors)
 
 ---
 
 ## **Typer**, the FastAPI of CLIs
 
-<a href="https://typer.tiangolo.com" target="_blank"><img src="https://typer.tiangolo.com/img/logo-margin/logo-margin-vector.svg" style="width: 20%;"></a>
+[![Typer](https://typer.tiangolo.com/img/logo-margin/logo-margin-vector.svg)](https://typer.tiangolo.com)
 
-If you are building a <abbr title="Command Line Interface">CLI</abbr> app to be used in the terminal instead of a web API, check out <a href="https://typer.tiangolo.com/" class="external-link" target="_blank">**Typer**</a>.
+If you are building a CLI app to be used in the terminal instead of a web API,
+check out [**Typer**](https://typer.tiangolo.com/).
 
-**Typer** is FastAPI's little sibling. And it's intended to be the **FastAPI of CLIs**. ⌨️ 🚀
+**Typer** is FastAPI's little sibling. And it's intended to be the **FastAPI
+of CLIs**. ⌨️ 🚀
 
 ## Requirements
 
 FastAPI stands on the shoulders of giants:
 
-* <a href="https://www.starlette.dev/" class="external-link" target="_blank">Starlette</a> for the web parts.
-* <a href="https://docs.pydantic.dev/" class="external-link" target="_blank">Pydantic</a> for the data parts.
+* [Starlette](https://www.starlette.dev/) for the web parts.
+* [Pydantic](https://docs.pydantic.dev/) for the data parts.
 
 ## Installation
 
-Create and activate a <a href="https://fastapi.tiangolo.com/virtual-environments/" class="external-link" target="_blank">virtual environment</a> and then install FastAPI:
-
-<div class="termy">
+Create and activate a
+[virtual environment](https://fastapi.tiangolo.com/virtual-environments/)
+and then install FastAPI:
 
 ```console
 $ pip install "fastapi[standard]"
@@ -361,9 +377,8 @@ $ pip install "fastapi[standard]"
 ---> 100%
 ```
 
-</div>
-
-**Note**: Make sure you put `"fastapi[standard]"` in quotes to ensure it works in all terminals.
+**Note**: Make sure you put `"fastapi[standard]"` in quotes to ensure it
+works in all terminals.
 
 ## Example
 
@@ -389,8 +404,8 @@ def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 ```
 
-<details markdown="1">
-<summary>Or use <code>async def</code>...</summary>
+<details>
+<summary>Or use async def...</summary>
 
 If your code uses `async` / `await`, use `async def`:
 
@@ -414,15 +429,14 @@ async def read_item(item_id: int, q: Union[str, None] = None):
 
 **Note**:
 
-If you don't know, check the _"In a hurry?"_ section about <a href="https://fastapi.tiangolo.com/async/#in-a-hurry" target="_blank">`async` and `await` in the docs</a>.
+If you don't know, check the *"In a hurry?"* section about
+[`async` and `await` in the docs](https://fastapi.tiangolo.com/async/#in-a-hurry).
 
 </details>
 
 ### Run it
 
 Run the server with:
-
-<div class="termy">
 
 ```console
 $ fastapi dev main.py
@@ -447,22 +461,24 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 ```
 
-</div>
+<details>
+<summary>About the command fastapi dev main.py...</summary>
 
-<details markdown="1">
-<summary>About the command <code>fastapi dev main.py</code>...</summary>
+The command `fastapi dev` reads your `main.py` file, detects the **FastAPI**
+app in it, and starts a server using [Uvicorn](https://www.uvicorn.dev).
 
-The command `fastapi dev` reads your `main.py` file, detects the **FastAPI** app in it, and starts a server using <a href="https://www.uvicorn.dev" class="external-link" target="_blank">Uvicorn</a>.
+By default, `fastapi dev` will start with auto-reload enabled for local
+development.
 
-By default, `fastapi dev` will start with auto-reload enabled for local development.
-
-You can read more about it in the <a href="https://fastapi.tiangolo.com/fastapi-cli/" target="_blank">FastAPI CLI docs</a>.
+You can read more about it in the
+[FastAPI CLI docs](https://fastapi.tiangolo.com/fastapi-cli/).
 
 </details>
 
 ### Check it
 
-Open your browser at <a href="http://127.0.0.1:8000/items/5?q=somequery" class="external-link" target="_blank">http://127.0.0.1:8000/items/5?q=somequery</a>.
+Open your browser at
+[http://127.0.0.1:8000/items/5?q=somequery](http://127.0.0.1:8000/items/5?q=somequery).
 
 You will see the JSON response as:
 
@@ -472,24 +488,27 @@ You will see the JSON response as:
 
 You already created an API that:
 
-* Receives HTTP requests in the _paths_ `/` and `/items/{item_id}`.
-* Both _paths_ take `GET` <em>operations</em> (also known as HTTP _methods_).
-* The _path_ `/items/{item_id}` has a _path parameter_ `item_id` that should be an `int`.
-* The _path_ `/items/{item_id}` has an optional `str` _query parameter_ `q`.
+* Receives HTTP requests in the *paths* `/` and `/items/{item_id}`.
+* Both *paths* take `GET` operations (also known as HTTP *methods*).
+* The *path* `/items/{item_id}` has a *path parameter* `item_id` that should
+  be an `int`.
+* The *path* `/items/{item_id}` has an optional `str` *query parameter* `q`.
 
 ### Interactive API docs
 
-Now go to <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs</a>.
+Now go to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
 
-You will see the automatic interactive API documentation (provided by <a href="https://github.com/swagger-api/swagger-ui" class="external-link" target="_blank">Swagger UI</a>):
+You will see the automatic interactive API documentation (provided by
+[Swagger UI](https://github.com/swagger-api/swagger-ui)):
 
 ![Swagger UI](https://fastapi.tiangolo.com/img/index/index-01-swagger-ui-simple.png)
 
 ### Alternative API docs
 
-And now, go to <a href="http://127.0.0.1:8000/redoc" class="external-link" target="_blank">http://127.0.0.1:8000/redoc</a>.
+And now, go to [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc).
 
-You will see the alternative automatic documentation (provided by <a href="https://github.com/Rebilly/ReDoc" class="external-link" target="_blank">ReDoc</a>):
+You will see the alternative automatic documentation (provided by
+[ReDoc](https://github.com/Rebilly/ReDoc)):
 
 ![ReDoc](https://fastapi.tiangolo.com/img/index/index-02-redoc-simple.png)
 
@@ -533,35 +552,42 @@ The `fastapi dev` server should reload automatically.
 
 ### Interactive API docs upgrade
 
-Now go to <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs</a>.
+Now go to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
 
-* The interactive API documentation will be automatically updated, including the new body:
+* The interactive API documentation will be automatically updated, including
+  the new body:
 
 ![Swagger UI](https://fastapi.tiangolo.com/img/index/index-03-swagger-02.png)
 
-* Click on the button "Try it out", it allows you to fill the parameters and directly interact with the API:
+* Click on the button "Try it out", it allows you to fill the parameters and
+  directly interact with the API:
 
 ![Swagger UI interaction](https://fastapi.tiangolo.com/img/index/index-04-swagger-03.png)
 
-* Then click on the "Execute" button, the user interface will communicate with your API, send the parameters, get the results and show them on the screen:
+* Then click on the "Execute" button, the user interface will communicate
+  with your API, send the parameters, get the results and show them on the
+  screen:
 
 ![Swagger UI interaction](https://fastapi.tiangolo.com/img/index/index-05-swagger-04.png)
 
 ### Alternative API docs upgrade
 
-And now, go to <a href="http://127.0.0.1:8000/redoc" class="external-link" target="_blank">http://127.0.0.1:8000/redoc</a>.
+And now, go to [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc).
 
-* The alternative documentation will also reflect the new query parameter and body:
+* The alternative documentation will also reflect the new query parameter and
+  body:
 
 ![ReDoc](https://fastapi.tiangolo.com/img/index/index-06-redoc-02.png)
 
 ### Recap
 
-In summary, you declare **once** the types of parameters, body, etc. as function parameters.
+In summary, you declare **once** the types of parameters, body, etc. as
+function parameters.
 
 You do that with standard modern Python types.
 
-You don't have to learn a new syntax, the methods or classes of a specific library, etc.
+You don't have to learn a new syntax, the methods or classes of a specific
+library, etc.
 
 Just standard **Python**.
 
@@ -580,48 +606,55 @@ item: Item
 ...and with that single declaration you get:
 
 * Editor support, including:
-    * Completion.
-    * Type checks.
+  * Completion.
+  * Type checks.
 * Validation of data:
-    * Automatic and clear errors when the data is invalid.
-    * Validation even for deeply nested JSON objects.
-* <abbr title="also known as: serialization, parsing, marshalling">Conversion</abbr> of input data: coming from the network to Python data and types. Reading from:
-    * JSON.
-    * Path parameters.
-    * Query parameters.
-    * Cookies.
-    * Headers.
-    * Forms.
-    * Files.
-* <abbr title="also known as: serialization, parsing, marshalling">Conversion</abbr> of output data: converting from Python data and types to network data (as JSON):
-    * Convert Python types (`str`, `int`, `float`, `bool`, `list`, etc).
-    * `datetime` objects.
-    * `UUID` objects.
-    * Database models.
-    * ...and many more.
-* Automatic interactive API documentation, including 2 alternative user interfaces:
-    * Swagger UI.
-    * ReDoc.
+  * Automatic and clear errors when the data is invalid.
+  * Validation even for deeply nested JSON objects.
+* Conversion of input data: coming from the network to Python data and types.
+  Reading from:
+  * JSON.
+  * Path parameters.
+  * Query parameters.
+  * Cookies.
+  * Headers.
+  * Forms.
+  * Files.
+* Conversion of output data: converting from Python data and types to network
+  data (as JSON):
+  * Convert Python types (`str`, `int`, `float`, `bool`, `list`, etc).
+  * `datetime` objects.
+  * `UUID` objects.
+  * Database models.
+  * ...and many more.
+* Automatic interactive API documentation, including 2 alternative user
+  interfaces:
+  * Swagger UI.
+  * ReDoc.
 
 ---
 
 Coming back to the previous code example, **FastAPI** will:
 
-* Validate that there is an `item_id` in the path for `GET` and `PUT` requests.
+* Validate that there is an `item_id` in the path for `GET` and `PUT`
+  requests.
 * Validate that the `item_id` is of type `int` for `GET` and `PUT` requests.
-    * If it is not, the client will see a useful, clear error.
-* Check if there is an optional query parameter named `q` (as in `http://127.0.0.1:8000/items/foo?q=somequery`) for `GET` requests.
-    * As the `q` parameter is declared with `= None`, it is optional.
-    * Without the `None` it would be required (as is the body in the case with `PUT`).
+  * If it is not, the client will see a useful, clear error.
+* Check if there is an optional query parameter named `q` (as in
+  `http://127.0.0.1:8000/items/foo?q=somequery`) for `GET` requests.
+  * As the `q` parameter is declared with `= None`, it is optional.
+  * Without the `None` it would be required (as is the body in the case with
+    `PUT`).
 * For `PUT` requests to `/items/{item_id}`, read the body as JSON:
-    * Check that it has a required attribute `name` that should be a `str`.
-    * Check that it has a required attribute `price` that has to be a `float`.
-    * Check that it has an optional attribute `is_offer`, that should be a `bool`, if present.
-    * All this would also work for deeply nested JSON objects.
+  * Check that it has a required attribute `name` that should be a `str`.
+  * Check that it has a required attribute `price` that has to be a `float`.
+  * Check that it has an optional attribute `is_offer`, that should be a
+    `bool`, if present.
+  * All this would also work for deeply nested JSON objects.
 * Convert from and to JSON automatically.
 * Document everything with OpenAPI, that can be used by:
-    * Interactive documentation systems.
-    * Automatic client code generation systems, for many languages.
+  * Interactive documentation systems.
+  * Automatic client code generation systems, for many languages.
 * Provide 2 interactive documentation web interfaces directly.
 
 ---
@@ -650,28 +683,37 @@ Try changing the line with:
 
 ![editor support](https://fastapi.tiangolo.com/img/vscode-completion.png)
 
-For a more complete example including more features, see the <a href="https://fastapi.tiangolo.com/tutorial/">Tutorial - User Guide</a>.
+For a more complete example including more features, see the
+[Tutorial - User Guide](https://fastapi.tiangolo.com/tutorial/).
 
 **Spoiler alert**: the tutorial - user guide includes:
 
-* Declaration of **parameters** from other different places as: **headers**, **cookies**, **form fields** and **files**.
+* Declaration of **parameters** from other different places as: **headers**,
+  **cookies**, **form fields** and **files**.
 * How to set **validation constraints** as `maximum_length` or `regex`.
-* A very powerful and easy to use **<abbr title="also known as components, resources, providers, services, injectables">Dependency Injection</abbr>** system.
-* Security and authentication, including support for **OAuth2** with **JWT tokens** and **HTTP Basic** auth.
-* More advanced (but equally easy) techniques for declaring **deeply nested JSON models** (thanks to Pydantic).
-* **GraphQL** integration with <a href="https://strawberry.rocks" class="external-link" target="_blank">Strawberry</a> and other libraries.
+* A very powerful and easy to use **Dependency Injection** system.
+* Security and authentication, including support for **OAuth2** with **JWT
+  tokens** and **HTTP Basic** auth.
+* More advanced (but equally easy) techniques for declaring **deeply nested
+  JSON models** (thanks to Pydantic).
+* **GraphQL** integration with [Strawberry](https://strawberry.rocks) and
+  other libraries.
 * Many extra features (thanks to Starlette) as:
-    * **WebSockets**
-    * extremely easy tests based on HTTPX and `pytest`
-    * **CORS**
-    * **Cookie Sessions**
-    * ...and more.
+  * **WebSockets**
+  * extremely easy tests based on HTTPX and `pytest`
+  * **CORS**
+  * **Cookie Sessions**
+  * ...and more.
 
 ## Performance
 
-Independent TechEmpower benchmarks show **FastAPI** applications running under Uvicorn as <a href="https://www.techempower.com/benchmarks/#section=test&runid=7464e520-0dc2-473d-bd34-dbdfd7e85911&hw=ph&test=query&l=zijzen-7" class="external-link" target="_blank">one of the fastest Python frameworks available</a>, only below Starlette and Uvicorn themselves (used internally by FastAPI). (*)
+Independent TechEmpower benchmarks show **FastAPI** applications running under
+Uvicorn as
+[one of the fastest Python frameworks available](https://www.techempower.com/benchmarks/#section=test&runid=7464e520-0dc2-473d-bd34-dbdfd7e85911&hw=ph&test=query&l=zijzen-7),
+only below Starlette and Uvicorn themselves (used internally by FastAPI). (\*)
 
-To understand more about it, see the section <a href="https://fastapi.tiangolo.com/benchmarks/" class="internal-link" target="_blank">Benchmarks</a>.
+To understand more about it, see the section
+[Benchmarks](https://fastapi.tiangolo.com/benchmarks/).
 
 ## Dependencies
 
@@ -679,45 +721,61 @@ FastAPI depends on Pydantic and Starlette.
 
 ### `standard` Dependencies
 
-When you install FastAPI with `pip install "fastapi[standard]"` it comes with the `standard` group of optional dependencies:
+When you install FastAPI with `pip install "fastapi[standard]"` it comes with
+the `standard` group of optional dependencies:
 
-Used by Pydantic:
+#### Used by Pydantic
 
-* <a href="https://github.com/JoshData/python-email-validator" target="_blank"><code>email-validator</code></a> - for email validation.
+* [`email-validator`](https://github.com/JoshData/python-email-validator) -
+  for email validation.
 
-Used by Starlette:
+#### Used by Starlette
 
-* <a href="https://www.python-httpx.org" target="_blank"><code>httpx</code></a> - Required if you want to use the `TestClient`.
-* <a href="https://jinja.palletsprojects.com" target="_blank"><code>jinja2</code></a> - Required if you want to use the default template configuration.
-* <a href="https://github.com/Kludex/python-multipart" target="_blank"><code>python-multipart</code></a> - Required if you want to support form <abbr title="converting the string that comes from an HTTP request into Python data">"parsing"</abbr>, with `request.form()`.
+* [`httpx`](https://www.python-httpx.org) - Required if you want to use the
+  `TestClient`.
+* [`jinja2`](https://jinja.palletsprojects.com) - Required if you want to use
+  the default template configuration.
+* [`python-multipart`](https://github.com/Kludex/python-multipart) - Required
+  if you want to support form "parsing", with `request.form()`.
 
-Used by FastAPI:
+#### Used by FastAPI
 
-* <a href="https://www.uvicorn.dev" target="_blank"><code>uvicorn</code></a> - for the server that loads and serves your application. This includes `uvicorn[standard]`, which includes some dependencies (e.g. `uvloop`) needed for high performance serving.
+* [`uvicorn`](https://www.uvicorn.dev) - for the server that loads and serves
+  your application. This includes `uvicorn[standard]`, which includes some
+  dependencies (e.g. `uvloop`) needed for high performance serving.
 * `fastapi-cli[standard]` - to provide the `fastapi` command.
-    * This includes `fastapi-cloud-cli`, which allows you to deploy your FastAPI application to <a href="https://fastapicloud.com" class="external-link" target="_blank">FastAPI Cloud</a>.
+  * This includes `fastapi-cloud-cli`, which allows you to deploy your FastAPI
+    application to [FastAPI Cloud](https://fastapicloud.com).
 
 ### Without `standard` Dependencies
 
-If you don't want to include the `standard` optional dependencies, you can install with `pip install fastapi` instead of `pip install "fastapi[standard]"`.
+If you don't want to include the `standard` optional dependencies, you can
+install with `pip install fastapi` instead of
+`pip install "fastapi[standard]"`.
 
 ### Without `fastapi-cloud-cli`
 
-If you want to install FastAPI with the standard dependencies but without the `fastapi-cloud-cli`, you can install with `pip install "fastapi[standard-no-fastapi-cloud-cli]"`.
+If you want to install FastAPI with the standard dependencies but without the
+`fastapi-cloud-cli`, you can install with
+`pip install "fastapi[standard-no-fastapi-cloud-cli]"`.
 
 ### Additional Optional Dependencies
 
 There are some additional dependencies you might want to install.
 
-Additional optional Pydantic dependencies:
+#### Additional optional Pydantic dependencies
 
-* <a href="https://docs.pydantic.dev/latest/usage/pydantic_settings/" target="_blank"><code>pydantic-settings</code></a> - for settings management.
-* <a href="https://docs.pydantic.dev/latest/usage/types/extra_types/extra_types/" target="_blank"><code>pydantic-extra-types</code></a> - for extra types to be used with Pydantic.
+* [`pydantic-settings`](https://docs.pydantic.dev/latest/usage/pydantic_settings/)
+  for settings management.
+* [`pydantic-extra-types`](https://docs.pydantic.dev/latest/usage/types/extra_types/extra_types/)
+  for extra types to be used with Pydantic.
 
-Additional optional FastAPI dependencies:
+#### Additional optional FastAPI dependencies
 
-* <a href="https://github.com/ijl/orjson" target="_blank"><code>orjson</code></a> - Required if you want to use `ORJSONResponse`.
-* <a href="https://github.com/esnme/ultrajson" target="_blank"><code>ujson</code></a> - Required if you want to use `UJSONResponse`.
+* [`orjson`](https://github.com/ijl/orjson) - Required if you want to use
+  `ORJSONResponse`.
+* [`ujson`](https://github.com/esnme/ultrajson) - Required if you want to use
+  `UJSONResponse`.
 
 ## License
 
