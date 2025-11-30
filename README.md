@@ -12,15 +12,15 @@ production*
 
 ---
 
-**Documentation**:
+**Documentation**: (to be replaced with github.io docs)
 [https://fastapi.tiangolo.com](https://fastapi.tiangolo.com)
 
 **Source Code**:
-[https://github.com/fastapi/fastapi](https://github.com/fastapi/fastapi)
+[https://github.com/darbotlabs/fapi](https://github.com/darbotlabs/fapi)
 
 ---
 
-FAPI is a fork and agentic continuation of FastAPI, but faster and managed by authorative intelligence agents. 
+FAPI is a fork and agentic continuation of FastAPI, managed by authorative intelligence agents as part of the darbot framework. 
 
 
 The key features are:
