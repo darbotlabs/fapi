@@ -1,8 +1,8 @@
-# FastAPI
+# FAPI
 
-[![FastAPI](https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png)](https://fastapi.tiangolo.com)
+[![FAPI](https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png)](https://fastapi.tiangolo.com)
 
-*FastAPI framework, high performance, easy to learn, fast to code, ready for
+*FAPI framework, high performance, easy to learn, fast to code, ready for
 production*
 
 [![Test](https://github.com/fastapi/fastapi/actions/workflows/test.yml/badge.svg?event=push&branch=master)](https://github.com/fastapi/fastapi/actions?query=workflow%3ATest+event%3Apush+branch%3Amaster)
@@ -20,12 +20,12 @@ production*
 
 ---
 
-FastAPI is a modern, fast (high-performance), web framework for building
-APIs with Python based on standard Python type hints.
+FAPI is a fork and agentic continuation of FastAPI, but faster and managed by authorative intelligence agents. 
+
 
 The key features are:
 
-* **Fast**: Very high performance, on par with **NodeJS** and **Go** (thanks
+* **Fast**: Very high performance, features on par with **NodeJS** and **Go** (thanks
   to Starlette and Pydantic).
   [One of the fastest Python frameworks available](#performance).
 * **Fast to code**: Increase the speed to develop features by about 200% to
@@ -59,7 +59,7 @@ Linux with Python 3.12.3.
 
 ### Step-by-Step Installation
 
-Follow these steps sequentially to set up your FastAPI development
+Follow these steps sequentially to set up your FAPI development
 environment:
 
 #### 1. Clone the Repository
@@ -112,7 +112,7 @@ pip install -e ".[all]"
 
 **What gets installed:**
 
-* FastAPI core framework
+* FAPI core framework
 * Uvicorn ASGI server with uvloop (high performance)
 * Pydantic for data validation
 * Starlette web framework
@@ -147,14 +147,14 @@ pip install -r requirements-tests.txt
 #### 8. Create Example Application
 
 ```bash
-# Create a basic FastAPI application file
+# Create a basic FAPI application file
 cat > main.py << 'EOF'
 from typing import Union
 
-from fastapi import FastAPI
+from fapi import FAPI
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FAPI()
 
 
 class Item(BaseModel):
@@ -165,7 +165,7 @@ class Item(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "Darbot"}
 
 
 @app.get("/items/{item_id}")
@@ -182,18 +182,18 @@ EOF
 #### 9. Start Development Server
 
 ```bash
-# Start the FastAPI development server with auto-reload
-fastapi dev main.py --port 8001
+# Start the FAPI development server with auto-reload
+fapi dev main.py --port 8043
 
 # Alternative: Use uvicorn directly
-# uvicorn main:app --reload --port 8001
+# uvicorn main:app --reload --port 8043
 ```
 
 **Server Info:**
 
-* API Server: <http://127.0.0.1:8001>
-* Interactive API docs (Swagger UI): <http://127.0.0.1:8001/docs>
-* Alternative API docs (ReDoc): <http://127.0.0.1:8001/redoc>
+* API Server: <http://127.0.0.1:8043>
+* Interactive API docs (Swagger UI): <http://127.0.0.1:8043/docs>
+* Alternative API docs (ReDoc): <http://127.0.0.1:8043/redoc>
 * Auto-reload is enabled by default in dev mode
 
 #### 10. Test the API (in a new terminal)
@@ -203,11 +203,11 @@ fastapi dev main.py --port 8001
 source venv/bin/activate
 
 # Test the root endpoint
-curl http://127.0.0.1:8001/
-# Expected: {"Hello":"World"}
+curl http://127.0.0.1:8043/
+# Expected: {"Hello":"Darbot"}
 
 # Test the items endpoint with path and query parameters
-curl http://127.0.0.1:8001/items/5?q=test
+curl http://127.0.0.1:8043/items/5?q=test
 # Expected: {"item_id":5,"q":"test"}
 ```
 
@@ -221,10 +221,10 @@ pytest tests/ -v
 pytest tests/test_tutorial/test_first_steps/ -v
 
 # Run with coverage report
-pytest tests/ --cov=fastapi --cov-report=html
+pytest tests/ --cov=fapi --cov-report=html
 
 # Run type checking
-mypy fastapi/
+mypy fapi/
 
 # Run linting
 ruff check .
@@ -233,8 +233,8 @@ ruff check .
 #### 12. Verify Installation
 
 ```bash
-# Check installed FastAPI version
-python -c "import fastapi; print(fastapi.__version__)"
+# Check installed FAPI version
+python -c "import fastapi; print(fapi.__version__)"
 
 # List all installed packages
 pip list
@@ -253,7 +253,7 @@ Once your environment is set up, use these commands for daily development:
 source venv/bin/activate
 
 # Start development server (auto-reload enabled)
-fastapi dev main.py --port 8001
+fapi dev main.py --port 8043
 
 # Run all tests
 pytest tests/ -v
@@ -262,10 +262,10 @@ pytest tests/ -v
 pytest tests/path/to/test_file.py -v
 
 # Run tests with coverage
-pytest --cov=fastapi --cov-report=term-missing
+pytest --cov=fapi --cov-report=term-missing
 
 # Type check the codebase
-mypy fastapi/
+mypy fapi/
 
 # Lint and format code
 ruff check .
@@ -283,11 +283,11 @@ pip freeze > requirements.txt
 **Port already in use:**
 
 ```bash
-# Use a different port
-fastapi dev main.py --port 8002
+# Use a different port (not recommended, best to clear existing fapi service)
+fastapi dev main.py --port 8044
 
-# Or find and kill the process using port 8001
-lsof -ti:8001 | xargs kill -9
+# Or find and kill the process using port 8043
+lsof -ti:8043 | xargs kill -9
 ```
 
 **Import errors:**
@@ -316,7 +316,7 @@ pytest -vv --tb=long
 
 ```text
 fapi/
-├── fastapi/              # Main FastAPI package source code
+├── fapi_src/              # Main FastAPI package source code
 ├── tests/                # Comprehensive test suite
 ├── docs/                 # Documentation (multiple languages)
 ├── docs_src/             # Documentation source code examples
@@ -330,37 +330,19 @@ fapi/
 
 ### Next Steps
 
-1. Visit <http://127.0.0.1:8001/docs> to explore the interactive API
+1. Visit <http://127.0.0.1:8043/docs> to explore the interactive API
    documentation
 2. Read the [Tutorial - User Guide](https://fastapi.tiangolo.com/tutorial/)
    for comprehensive examples
 3. Explore the `docs_src/` directory for more example code
-4. Check out `tests/` to see how FastAPI itself is tested
+4. Check out `tests/` to see how FAPI itself is tested
 5. Modify `main.py` to build your own API
-
-## Sponsors
-
-<!-- sponsors -->
-
-<!-- /sponsors -->
-
-[Other sponsors](https://fastapi.tiangolo.com/fastapi-people/#sponsors)
 
 ---
 
-## **Typer**, the FastAPI of CLIs
-
-[![Typer](https://typer.tiangolo.com/img/logo-margin/logo-margin-vector.svg)](https://typer.tiangolo.com)
-
-If you are building a CLI app to be used in the terminal instead of a web API,
-check out [**Typer**](https://typer.tiangolo.com/).
-
-**Typer** is FastAPI's little sibling. And it's intended to be the **FastAPI
-of CLIs**. ⌨️ 🚀
-
 ## Requirements
 
-FastAPI stands on the shoulders of giants:
+FAPI stands on the shoulders of giants:
 
 * [Starlette](https://www.starlette.dev/) for the web parts.
 * [Pydantic](https://docs.pydantic.dev/) for the data parts.
@@ -369,15 +351,15 @@ FastAPI stands on the shoulders of giants:
 
 Create and activate a
 [virtual environment](https://fastapi.tiangolo.com/virtual-environments/)
-and then install FastAPI:
+and then install FAPI:
 
 ```console
-$ pip install "fastapi[standard]"
+$ pip install "fapi[standard]"
 
 ---> 100%
 ```
 
-**Note**: Make sure you put `"fastapi[standard]"` in quotes to ensure it
+**Note**: Make sure you put `"fapi[standard]"` in quotes to ensure it
 works in all terminals.
 
 ## Example
@@ -389,14 +371,14 @@ Create a file `main.py` with:
 ```Python
 from typing import Union
 
-from fastapi import FastAPI
+from fapi import FAPI
 
-app = FastAPI()
+app = FAPI()
 
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "Darbot"}
 
 
 @app.get("/items/{item_id}")
@@ -412,14 +394,14 @@ If your code uses `async` / `await`, use `async def`:
 ```Python hl_lines="9  14"
 from typing import Union
 
-from fastapi import FastAPI
+from fastapi import FAPI
 
-app = FastAPI()
+app = FAPI()
 
 
 @app.get("/")
 async def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "Darbot"}
 
 
 @app.get("/items/{item_id}")
@@ -439,22 +421,22 @@ If you don't know, check the *"In a hurry?"* section about
 Run the server with:
 
 ```console
-$ fastapi dev main.py
+$ fapi dev main.py
 
- ╭────────── FastAPI CLI - Development mode ───────────╮
+ ╭────────── FAPI CLI - Development mode ───────────╮
  │                                                     │
- │  Serving at: http://127.0.0.1:8000                  │
+ │  Serving at: http://127.0.0.1:8043                  │
  │                                                     │
- │  API docs: http://127.0.0.1:8000/docs               │
+ │  API docs: http://127.0.0.1:8043/docs               │
  │                                                     │
  │  Running in development mode, for production use:   │
  │                                                     │
- │  fastapi run                                        │
+ │  fapi run                                           │
  │                                                     │
  ╰─────────────────────────────────────────────────────╯
 
 INFO:     Will watch for changes in these directories: ['/home/user/code/awesomeapp']
-INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Uvicorn running on http://127.0.0.1:8043 (Press CTRL+C to quit)
 INFO:     Started reloader process [2248755] using WatchFiles
 INFO:     Started server process [2248757]
 INFO:     Waiting for application startup.
@@ -462,12 +444,12 @@ INFO:     Application startup complete.
 ```
 
 <details>
-<summary>About the command fastapi dev main.py...</summary>
+<summary>About the command fapi dev main.py...</summary>
 
-The command `fastapi dev` reads your `main.py` file, detects the **FastAPI**
+The command `fapi dev` reads your `main.py` file, detects the **FAPI**
 app in it, and starts a server using [Uvicorn](https://www.uvicorn.dev).
 
-By default, `fastapi dev` will start with auto-reload enabled for local
+By default, `fapi dev` will start with auto-reload enabled for local
 development.
 
 You can read more about it in the
@@ -478,7 +460,7 @@ You can read more about it in the
 ### Check it
 
 Open your browser at
-[http://127.0.0.1:8000/items/5?q=somequery](http://127.0.0.1:8000/items/5?q=somequery).
+[http://127.0.0.1:8043/items/5?q=somequery](http://127.0.0.1:8043/items/5?q=somequery).
 
 You will see the JSON response as:
 
@@ -496,7 +478,7 @@ You already created an API that:
 
 ### Interactive API docs
 
-Now go to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+Now go to [http://127.0.0.1:8043/docs](http://127.0.0.1:8043/docs).
 
 You will see the automatic interactive API documentation (provided by
 [Swagger UI](https://github.com/swagger-api/swagger-ui)):
@@ -505,7 +487,7 @@ You will see the automatic interactive API documentation (provided by
 
 ### Alternative API docs
 
-And now, go to [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc).
+And now, go to [http://127.0.0.1:8043/redoc](http://127.0.0.1:8043/redoc).
 
 You will see the alternative automatic documentation (provided by
 [ReDoc](https://github.com/Rebilly/ReDoc)):
@@ -521,10 +503,10 @@ Declare the body using standard Python types, thanks to Pydantic.
 ```Python hl_lines="4  9-12  25-27"
 from typing import Union
 
-from fastapi import FastAPI
+from fastapi import FAPI
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FAPI()
 
 
 class Item(BaseModel):
@@ -548,11 +530,11 @@ def update_item(item_id: int, item: Item):
     return {"item_name": item.name, "item_id": item_id}
 ```
 
-The `fastapi dev` server should reload automatically.
+The `fapi dev` server should reload automatically.
 
 ### Interactive API docs upgrade
 
-Now go to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+Now go to [http://127.0.0.1:8043/docs](http://127.0.0.1:8043/docs).
 
 * The interactive API documentation will be automatically updated, including
   the new body:
@@ -572,7 +554,7 @@ Now go to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
 
 ### Alternative API docs upgrade
 
-And now, go to [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc).
+And now, go to [http://127.0.0.1:8043/redoc](http://127.0.0.1:8043/redoc).
 
 * The alternative documentation will also reflect the new query parameter and
   body:
@@ -634,14 +616,14 @@ item: Item
 
 ---
 
-Coming back to the previous code example, **FastAPI** will:
+Coming back to the previous code example, **FAPI** will:
 
 * Validate that there is an `item_id` in the path for `GET` and `PUT`
   requests.
 * Validate that the `item_id` is of type `int` for `GET` and `PUT` requests.
   * If it is not, the client will see a useful, clear error.
 * Check if there is an optional query parameter named `q` (as in
-  `http://127.0.0.1:8000/items/foo?q=somequery`) for `GET` requests.
+  `http://127.0.0.1:8043/items/foo?q=somequery`) for `GET` requests.
   * As the `q` parameter is declared with `= None`, it is optional.
   * Without the `None` it would be required (as is the body in the case with
     `PUT`).
@@ -705,23 +687,14 @@ For a more complete example including more features, see the
   * **Cookie Sessions**
   * ...and more.
 
-## Performance
-
-Independent TechEmpower benchmarks show **FastAPI** applications running under
-Uvicorn as
-[one of the fastest Python frameworks available](https://www.techempower.com/benchmarks/#section=test&runid=7464e520-0dc2-473d-bd34-dbdfd7e85911&hw=ph&test=query&l=zijzen-7),
-only below Starlette and Uvicorn themselves (used internally by FastAPI). (\*)
-
-To understand more about it, see the section
-[Benchmarks](https://fastapi.tiangolo.com/benchmarks/).
 
 ## Dependencies
 
-FastAPI depends on Pydantic and Starlette.
+FAPI depends on Pydantic and Starlette. Those will also get forked into the darbot framework in the future, but for now they are dependencies. 
 
 ### `standard` Dependencies
 
-When you install FastAPI with `pip install "fastapi[standard]"` it comes with
+When you install FAPI with `pip install "fapi[standard]"` it comes with
 the `standard` group of optional dependencies:
 
 #### Used by Pydantic
@@ -738,26 +711,25 @@ the `standard` group of optional dependencies:
 * [`python-multipart`](https://github.com/Kludex/python-multipart) - Required
   if you want to support form "parsing", with `request.form()`.
 
-#### Used by FastAPI
+#### Used by FAPI
 
 * [`uvicorn`](https://www.uvicorn.dev) - for the server that loads and serves
   your application. This includes `uvicorn[standard]`, which includes some
   dependencies (e.g. `uvloop`) needed for high performance serving.
 * `fastapi-cli[standard]` - to provide the `fastapi` command.
-  * This includes `fastapi-cloud-cli`, which allows you to deploy your FastAPI
-    application to [FastAPI Cloud](https://fastapicloud.com).
+
 
 ### Without `standard` Dependencies
 
 If you don't want to include the `standard` optional dependencies, you can
-install with `pip install fastapi` instead of
-`pip install "fastapi[standard]"`.
+install with `pip install fapi` instead of
+`pip install "fapi[standard]"`.
 
-### Without `fastapi-cloud-cli`
+### Without `fapi-cloud-cli`
 
-If you want to install FastAPI with the standard dependencies but without the
-`fastapi-cloud-cli`, you can install with
-`pip install "fastapi[standard-no-fastapi-cloud-cli]"`.
+If you want to install FAPI with the standard dependencies but without the
+`fapi-cloud-cli`, you can install with
+`pip install "fastapi[standard-no-fapi-cloud-cli]"`.
 
 ### Additional Optional Dependencies
 
@@ -770,7 +742,7 @@ There are some additional dependencies you might want to install.
 * [`pydantic-extra-types`](https://docs.pydantic.dev/latest/usage/types/extra_types/extra_types/)
   for extra types to be used with Pydantic.
 
-#### Additional optional FastAPI dependencies
+#### Additional optional FAPI dependencies
 
 * [`orjson`](https://github.com/ijl/orjson) - Required if you want to use
   `ORJSONResponse`.
