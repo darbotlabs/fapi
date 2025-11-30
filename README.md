@@ -6,9 +6,6 @@
 production*
 
 [![Test](https://github.com/fastapi/fastapi/actions/workflows/test.yml/badge.svg?event=push&branch=master)](https://github.com/fastapi/fastapi/actions?query=workflow%3ATest+event%3Apush+branch%3Amaster)
-[![Coverage](https://coverage-badge.samuelcolvin.workers.dev/fastapi/fastapi.svg)](https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/fastapi)
-[![Package version](https://img.shields.io/pypi/v/fastapi?color=%2334D058&label=pypi%20package)](https://pypi.org/project/fastapi)
-[![Supported Python versions](https://img.shields.io/pypi/pyversions/fastapi.svg?color=%2334D058)](https://pypi.org/project/fastapi)
 
 ---
 
@@ -48,7 +45,7 @@ production applications.
 ## Complete Development Setup Guide
 
 This section provides step-by-step instructions for setting up a complete
-FastAPI development environment on a new machine. These steps were tested on
+FAPI development environment on a new machine. These steps were tested on
 Linux with Python 3.12.3.
 
 ### Prerequisites
