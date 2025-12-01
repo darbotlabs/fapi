@@ -68,7 +68,7 @@ ruff format fastapi tests
 
 ```bash
 # Start development server with auto-reload
-fapi dev main.py --port 8043
+fastapi dev main.py --port 8043
 
 # Alternative using uvicorn directly
 uvicorn main:app --reload --port 8043
