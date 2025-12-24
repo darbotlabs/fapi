@@ -5,7 +5,7 @@ from tests.utils import pydantic_snapshot, skip_module_if_py_gte_314
 if sys.version_info >= (3, 14):
     skip_module_if_py_gte_314()
 
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 from inline_snapshot import snapshot
 
 from .main import app

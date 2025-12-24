@@ -1,6 +1,6 @@
 from typing import List, Union
 
-from fastapi import FastAPI, Query
+from fapi import FastAPI, Query
 
 app = FastAPI()
 

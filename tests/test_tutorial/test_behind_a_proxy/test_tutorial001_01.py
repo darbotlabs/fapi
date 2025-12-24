@@ -1,4 +1,4 @@
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from docs_src.behind_a_proxy.tutorial001_01 import app
 

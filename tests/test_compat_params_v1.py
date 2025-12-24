@@ -8,9 +8,9 @@ from tests.utils import pydantic_snapshot, skip_module_if_py_gte_314
 if sys.version_info >= (3, 14):
     skip_module_if_py_gte_314()
 
-from fastapi import FastAPI
-from fastapi._compat.v1 import BaseModel
-from fastapi.temp_pydantic_v1_params import (
+from fapi import FastAPI
+from fapi._compat.v1 import BaseModel
+from fapi.temp_pydantic_v1_params import (
     Body,
     Cookie,
     File,
@@ -19,7 +19,7 @@ from fastapi.temp_pydantic_v1_params import (
     Path,
     Query,
 )
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 from inline_snapshot import snapshot
 from typing_extensions import Annotated
 

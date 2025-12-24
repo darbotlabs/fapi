@@ -1,8 +1,8 @@
 from typing import List, Tuple
 
 from dirty_equals import IsDict
-from fastapi import FastAPI, Form
-from fastapi.testclient import TestClient
+from fapi import FastAPI, Form
+from fapi.testclient import TestClient
 from pydantic import BaseModel
 
 app = FastAPI()

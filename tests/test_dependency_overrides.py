@@ -2,8 +2,8 @@ from typing import Optional
 
 import pytest
 from dirty_equals import IsDict
-from fastapi import APIRouter, Depends, FastAPI
-from fastapi.testclient import TestClient
+from fapi import APIRouter, Depends, FastAPI
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

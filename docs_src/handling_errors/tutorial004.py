@@ -1,6 +1,6 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.exceptions import RequestValidationError
-from fastapi.responses import PlainTextResponse
+from fapi import FastAPI, HTTPException
+from fapi.exceptions import RequestValidationError
+from fapi.responses import PlainTextResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 app = FastAPI()

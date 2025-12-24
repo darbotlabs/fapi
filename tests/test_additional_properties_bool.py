@@ -1,9 +1,9 @@
 from typing import Union
 
 from dirty_equals import IsDict
-from fastapi import FastAPI
-from fastapi._compat import PYDANTIC_V2
-from fastapi.testclient import TestClient
+from fapi import FastAPI
+from fapi._compat import PYDANTIC_V2
+from fapi.testclient import TestClient
 from pydantic import BaseModel, ConfigDict
 
 

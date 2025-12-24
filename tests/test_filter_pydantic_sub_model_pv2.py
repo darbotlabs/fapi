@@ -2,9 +2,9 @@ from typing import Optional
 
 import pytest
 from dirty_equals import HasRepr, IsDict, IsOneOf
-from fastapi import Depends, FastAPI
-from fastapi.exceptions import ResponseValidationError
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI
+from fapi.exceptions import ResponseValidationError
+from fapi.testclient import TestClient
 
 from .utils import needs_pydanticv2
 

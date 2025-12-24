@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fapi import FastAPI
 
 from . import a, b
 

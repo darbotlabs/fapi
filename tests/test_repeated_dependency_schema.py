@@ -1,5 +1,5 @@
-from fastapi import Depends, FastAPI, Header, status
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI, Header, status
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

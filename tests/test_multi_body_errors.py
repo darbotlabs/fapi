@@ -2,8 +2,8 @@ from decimal import Decimal
 from typing import List
 
 from dirty_equals import IsDict, IsOneOf
-from fastapi import FastAPI
-from fastapi.testclient import TestClient
+from fapi import FastAPI
+from fapi.testclient import TestClient
 from pydantic import BaseModel, condecimal
 
 app = FastAPI()

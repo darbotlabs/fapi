@@ -1,7 +1,7 @@
 from typing import Union
 
-from fastapi import Body, FastAPI, Query
-from fastapi.testclient import TestClient
+from fapi import Body, FastAPI, Query
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

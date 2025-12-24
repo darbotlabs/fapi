@@ -1,7 +1,7 @@
 from typing import List, Union
 
-from fastapi import FastAPI
-from fastapi.encoders import jsonable_encoder
+from fapi import FastAPI
+from fapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 
 app = FastAPI()

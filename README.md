@@ -148,10 +148,10 @@ pip install -r requirements-tests.txt
 cat > main.py << 'EOF'
 from typing import Union
 
-from fapi import FAPI
+from fapi import FastAPI
 from pydantic import BaseModel
 
-app = FAPI()
+app = FastAPI()
 
 
 class Item(BaseModel):
@@ -231,7 +231,7 @@ ruff check .
 
 ```bash
 # Check installed FAPI version
-python -c "import fastapi; print(fapi.__version__)"
+python -c "import fapi; print(fapi.__version__)"
 
 # List all installed packages
 pip list
@@ -313,7 +313,7 @@ pytest -vv --tb=long
 
 ```text
 fapi/
-├── fapi_src/              # Main FastAPI package source code
+├── fapi/                 # Main FAPI package source code
 ├── tests/                # Comprehensive test suite
 ├── docs/                 # Documentation (multiple languages)
 ├── docs_src/             # Documentation source code examples
@@ -368,9 +368,9 @@ Create a file `main.py` with:
 ```Python
 from typing import Union
 
-from fapi import FAPI
+from fapi import FastAPI
 
-app = FAPI()
+app = FastAPI()
 
 
 @app.get("/")
@@ -391,9 +391,9 @@ If your code uses `async` / `await`, use `async def`:
 ```Python hl_lines="9  14"
 from typing import Union
 
-from fastapi import FAPI
+from fapi import FastAPI
 
-app = FAPI()
+app = FastAPI()
 
 
 @app.get("/")
@@ -500,10 +500,10 @@ Declare the body using standard Python types, thanks to Pydantic.
 ```Python hl_lines="4  9-12  25-27"
 from typing import Union
 
-from fastapi import FAPI
+from fapi import FastAPI
 from pydantic import BaseModel
 
-app = FAPI()
+app = FastAPI()
 
 
 class Item(BaseModel):

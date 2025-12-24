@@ -1,7 +1,7 @@
 from typing import Union
 
-from fastapi import FastAPI
-from fastapi.responses import FileResponse
+from fapi import FastAPI
+from fapi.responses import FileResponse
 from pydantic import BaseModel
 
 

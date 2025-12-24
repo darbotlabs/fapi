@@ -1,6 +1,6 @@
-from fastapi import FastAPI, Security
-from fastapi.security.http import HTTPAuthorizationCredentials, HTTPBase
-from fastapi.testclient import TestClient
+from fapi import FastAPI, Security
+from fapi.security.http import HTTPAuthorizationCredentials, HTTPBase
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

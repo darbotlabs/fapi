@@ -3,15 +3,16 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [project]
-name = "fastapi"
+name = "fapi"
 dynamic = ["version"]
-description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+description = "FAPI framework, high performance, easy to learn, fast to code, ready for production"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.8"
 authors = [
     { name = "Sebastián Ramírez", email = "tiangolo@gmail.com" },
+    { name = "Darbot Labs", email = "hello@darbot.ai" },
 ]
 classifiers = [
     "Intended Audience :: Information Technology",
@@ -52,11 +53,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/fastapi/fastapi"
-Documentation = "https://fastapi.tiangolo.com/"
-Repository = "https://github.com/fastapi/fastapi"
-Issues = "https://github.com/fastapi/fastapi/issues"
-Changelog = "https://fastapi.tiangolo.com/release-notes/"
+Homepage = "https://github.com/darbotlabs/fapi"
+Documentation = "https://darbotlabs.github.io/fapi/"
+Repository = "https://github.com/darbotlabs/fapi"
+Issues = "https://github.com/darbotlabs/fapi/issues"
+Changelog = "https://github.com/darbotlabs/fapi/releases"
 
 [project.optional-dependencies]
 
@@ -125,10 +126,10 @@ all = [
 ]
 
 [project.scripts]
-fastapi = "fastapi.cli:main"
+fapi = "fapi.cli:main"
 
 [tool.pdm]
-version = { source = "file", path = "fastapi/__init__.py" }
+version = { source = "file", path = "fapi/__init__.py" }
 distribution = true
 
 [tool.pdm.build]
@@ -141,20 +142,20 @@ source-includes = [
     "docs/en/docs/img/favicon.png",
     ]
 
-[tool.tiangolo._internal-slim-build.packages.fastapi-slim.project]
-name = "fastapi-slim"
+[tool.tiangolo._internal-slim-build.packages.fapi-slim.project]
+name = "fapi-slim"
 
 [tool.mypy]
 plugins = ["pydantic.mypy"]
 strict = true
 
 [[tool.mypy.overrides]]
-module = "fastapi.concurrency"
+module = "fapi.concurrency"
 warn_unused_ignores = false
 ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
-module = "fastapi.tests.*"
+module = "fapi.tests.*"
 ignore_missing_imports = true
 check_untyped_defs = true
 
@@ -194,7 +195,7 @@ data_file = "coverage/.coverage"
 source = [
     "docs_src",
     "tests",
-    "fastapi"
+    "fapi"
 ]
 context = '${CONTEXT}'
 dynamic_context = "test_function"
@@ -261,7 +262,7 @@ ignore = [
 
 
 [tool.ruff.lint.isort]
-known-third-party = ["fastapi", "pydantic", "starlette"]
+known-third-party = ["fapi", "pydantic", "starlette"]
 
 [tool.ruff.lint.pyupgrade]
 # Preserve types, even if a file imports `from __future__ import annotations`.

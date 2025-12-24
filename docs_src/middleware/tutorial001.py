@@ -1,6 +1,6 @@
 import time
 
-from fastapi import FastAPI, Request
+from fapi import FastAPI, Request
 
 app = FastAPI()
 

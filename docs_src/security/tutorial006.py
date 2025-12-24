@@ -1,5 +1,5 @@
-from fastapi import Depends, FastAPI
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from fapi import Depends, FastAPI
+from fapi.security import HTTPBasic, HTTPBasicCredentials
 
 app = FastAPI()
 

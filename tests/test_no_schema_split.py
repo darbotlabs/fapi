@@ -5,8 +5,8 @@
 from enum import Enum
 from typing import List
 
-from fastapi import FastAPI
-from fastapi.testclient import TestClient
+from fapi import FastAPI
+from fapi.testclient import TestClient
 from inline_snapshot import snapshot
 from pydantic import BaseModel, Field
 

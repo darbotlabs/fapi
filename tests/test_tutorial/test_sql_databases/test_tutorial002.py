@@ -3,7 +3,7 @@ import warnings
 
 import pytest
 from dirty_equals import IsDict, IsInt
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 from inline_snapshot import Is, snapshot
 from sqlalchemy import StaticPool
 from sqlmodel import SQLModel, create_engine

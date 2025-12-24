@@ -1,6 +1,6 @@
 from typing import Union
 
-from fastapi import FastAPI, status
+from fapi import FastAPI, status
 from pydantic import BaseModel
 
 app = FastAPI()

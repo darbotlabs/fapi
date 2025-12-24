@@ -1,6 +1,6 @@
 from typing import List, Union
 
-from fastapi import FastAPI, Header
+from fapi import FastAPI, Header
 
 app = FastAPI()
 

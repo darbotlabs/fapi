@@ -1,7 +1,7 @@
 import http
 from typing import FrozenSet, List, Optional
 
-from fastapi import FastAPI, Path, Query
+from fapi import FastAPI, Path, Query
 
 external_docs = {
     "description": "External API documentation.",

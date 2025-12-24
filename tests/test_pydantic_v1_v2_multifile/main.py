@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import FastAPI
+from fapi import FastAPI
 
 from . import modelsv1, modelsv2, modelsv2b
 

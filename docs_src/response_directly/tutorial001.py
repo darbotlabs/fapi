@@ -1,9 +1,9 @@
 from datetime import datetime
 from typing import Union
 
-from fastapi import FastAPI
-from fastapi.encoders import jsonable_encoder
-from fastapi.responses import JSONResponse
+from fapi import FastAPI
+from fapi.encoders import jsonable_encoder
+from fapi.responses import JSONResponse
 from pydantic import BaseModel
 
 

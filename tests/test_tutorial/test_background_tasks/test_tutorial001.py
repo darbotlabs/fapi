@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from docs_src.background_tasks.tutorial001 import app
 

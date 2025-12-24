@@ -1,6 +1,6 @@
 from typing import List, Union
 
-from fastapi._compat.v1 import BaseModel
+from fapi._compat.v1 import BaseModel
 
 
 class SubItem(BaseModel):

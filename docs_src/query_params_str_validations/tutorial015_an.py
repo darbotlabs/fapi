@@ -1,7 +1,7 @@
 import random
 from typing import Union
 
-from fastapi import FastAPI
+from fapi import FastAPI
 from pydantic import AfterValidator
 from typing_extensions import Annotated
 

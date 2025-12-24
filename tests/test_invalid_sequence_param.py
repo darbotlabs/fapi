@@ -1,7 +1,7 @@
 from typing import Dict, List, Optional, Tuple
 
 import pytest
-from fastapi import FastAPI, Query
+from fapi import FastAPI, Query
 from pydantic import BaseModel
 
 

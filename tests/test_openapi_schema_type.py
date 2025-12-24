@@ -1,7 +1,7 @@
 from typing import List, Optional, Union
 
 import pytest
-from fastapi.openapi.models import Schema, SchemaType
+from fapi.openapi.models import Schema, SchemaType
 
 
 @pytest.mark.parametrize(

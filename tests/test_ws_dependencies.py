@@ -1,8 +1,8 @@
 import json
 from typing import List
 
-from fastapi import APIRouter, Depends, FastAPI, WebSocket
-from fastapi.testclient import TestClient
+from fapi import APIRouter, Depends, FastAPI, WebSocket
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 

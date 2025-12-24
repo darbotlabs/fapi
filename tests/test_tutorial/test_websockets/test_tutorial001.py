@@ -1,6 +1,6 @@
 import pytest
-from fastapi.testclient import TestClient
-from fastapi.websockets import WebSocketDisconnect
+from fapi.testclient import TestClient
+from fapi.websockets import WebSocketDisconnect
 
 from docs_src.websockets.tutorial001 import app
 

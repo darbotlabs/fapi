@@ -1,7 +1,7 @@
 import sys
 
 import pytest
-from fastapi._compat import PYDANTIC_V2
+from fapi._compat import PYDANTIC_V2
 from inline_snapshot import snapshot
 
 from tests.utils import skip_module_if_py_gte_314
@@ -15,7 +15,7 @@ if not PYDANTIC_V2:
 
 import importlib
 
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from ...utils import needs_py39, needs_py310
 

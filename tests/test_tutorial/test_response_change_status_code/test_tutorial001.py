@@ -1,4 +1,4 @@
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from docs_src.response_change_status_code.tutorial001 import app
 

@@ -36,9 +36,9 @@ pip install -r requirements-tests.txt
 bash scripts/lint.sh
 
 # Or run individually:
-mypy fastapi
-ruff check fastapi tests docs_src scripts
-ruff format fastapi tests --check
+mypy fapi
+ruff check fapi tests docs_src scripts
+ruff format fapi tests --check
 ```
 
 ### Testing
@@ -54,21 +54,21 @@ bash scripts/test.sh
 pytest tests/path/to/test_file.py -v
 
 # Run tests with coverage report
-pytest tests/ --cov=fastapi --cov-report=html
+pytest tests/ --cov=fapi --cov-report=html
 ```
 
 ### Formatting
 
 ```bash
 # Format code
-ruff format fastapi tests
+ruff format fapi tests
 ```
 
 ### Running the Development Server
 
 ```bash
 # Start development server with auto-reload
-fastapi dev main.py --port 8043
+fapi dev main.py --port 8043
 
 # Alternative using uvicorn directly
 uvicorn main:app --reload --port 8043
@@ -78,7 +78,7 @@ uvicorn main:app --reload --port 8043
 
 ```text
 fapi/
-├── fastapi/              # Main FastAPI package source code
+├── fapi/                 # Main FAPI package source code
 ├── tests/                # Comprehensive test suite
 ├── docs/                 # Documentation (multiple languages)
 ├── docs_src/             # Documentation source code examples

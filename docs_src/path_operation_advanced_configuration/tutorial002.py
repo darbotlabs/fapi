@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.routing import APIRoute
+from fapi import FastAPI
+from fapi.routing import APIRoute
 
 app = FastAPI()
 

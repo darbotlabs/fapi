@@ -1,8 +1,8 @@
 from typing import Optional
 
-from fastapi import FastAPI, Security
-from fastapi.security import HTTPAuthorizationCredentials, HTTPDigest
-from fastapi.testclient import TestClient
+from fapi import FastAPI, Security
+from fapi.security import HTTPAuthorizationCredentials, HTTPDigest
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

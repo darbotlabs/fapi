@@ -1,4 +1,4 @@
-from fastapi import BackgroundTasks, FastAPI
+from fapi import BackgroundTasks, FastAPI
 
 app = FastAPI()
 

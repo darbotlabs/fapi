@@ -2,7 +2,7 @@ import importlib
 
 import pytest
 from dirty_equals import IsDict
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from ...utils import needs_py39
 

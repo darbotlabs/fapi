@@ -1,7 +1,7 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
+from fapi import FastAPI, Request
+from fapi.responses import HTMLResponse
+from fapi.staticfiles import StaticFiles
+from fapi.templating import Jinja2Templates
 
 app = FastAPI()
 

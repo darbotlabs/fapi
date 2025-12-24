@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Union
 
-from fastapi import FastAPI, UploadFile
-from fastapi._compat import (
+from fapi import FastAPI, UploadFile
+from fapi._compat import (
     Undefined,
     _get_model_config,
     get_cached_model_fields,
@@ -9,8 +9,8 @@ from fastapi._compat import (
     is_uploadfile_sequence_annotation,
     may_v1,
 )
-from fastapi._compat.shared import is_bytes_sequence_annotation
-from fastapi.testclient import TestClient
+from fapi._compat.shared import is_bytes_sequence_annotation
+from fapi.testclient import TestClient
 from pydantic import BaseModel, ConfigDict
 from pydantic.fields import FieldInfo
 
@@ -19,7 +19,7 @@ from .utils import needs_py_lt_314, needs_pydanticv2
 
 @needs_pydanticv2
 def test_model_field_default_required():
-    from fastapi._compat import v2
+    from fapi._compat import v2
 
     # For coverage
     field_info = FieldInfo(annotation=str)
@@ -29,7 +29,7 @@ def test_model_field_default_required():
 
 @needs_py_lt_314
 def test_v1_plain_validator_function():
-    from fastapi._compat import v1
+    from fapi._compat import v1
 
     # For coverage
     def func(v):  # pragma: no cover
@@ -41,7 +41,7 @@ def test_v1_plain_validator_function():
 
 def test_is_model_field():
     # For coverage
-    from fastapi._compat import _is_model_field
+    from fapi._compat import _is_model_field
 
     assert not _is_model_field(str)
 
@@ -138,7 +138,7 @@ def test_is_uploadfile_sequence_annotation():
 
 @needs_py_lt_314
 def test_is_pv1_scalar_field():
-    from fastapi._compat import v1
+    from fapi._compat import v1
 
     # For coverage
     class Model(v1.BaseModel):
@@ -150,7 +150,7 @@ def test_is_pv1_scalar_field():
 
 @needs_py_lt_314
 def test_get_model_fields_cached():
-    from fastapi._compat import v1
+    from fapi._compat import v1
 
     class Model(may_v1.BaseModel):
         foo: str

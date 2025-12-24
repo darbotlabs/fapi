@@ -1,6 +1,6 @@
 from typing import Union
 
-from fastapi import Cookie, FastAPI
+from fapi import Cookie, FastAPI
 from typing_extensions import Annotated
 
 app = FastAPI()

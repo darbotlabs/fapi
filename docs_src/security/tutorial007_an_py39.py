@@ -1,8 +1,8 @@
 import secrets
 from typing import Annotated
 
-from fastapi import Depends, FastAPI, HTTPException, status
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from fapi import Depends, FastAPI, HTTPException, status
+from fapi.security import HTTPBasic, HTTPBasicCredentials
 
 app = FastAPI()
 

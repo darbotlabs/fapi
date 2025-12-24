@@ -1,6 +1,6 @@
 from dirty_equals import IsOneOf
-from fastapi import FastAPI
-from fastapi.testclient import TestClient
+from fapi import FastAPI
+from fapi.testclient import TestClient
 
 app = FastAPI(
     servers=[

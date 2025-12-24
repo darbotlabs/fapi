@@ -1,8 +1,8 @@
 from typing import List
 
 from dirty_equals import IsDict
-from fastapi import FastAPI, Query
-from fastapi.testclient import TestClient
+from fapi import FastAPI, Query
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

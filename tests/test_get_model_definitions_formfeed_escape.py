@@ -4,7 +4,7 @@ import fastapi._compat
 import fastapi.openapi.utils
 import pydantic.schema
 import pytest
-from fastapi import FastAPI
+from fapi import FastAPI
 from pydantic import BaseModel
 from starlette.testclient import TestClient
 
@@ -164,7 +164,7 @@ def test_model_description_escaped_with_formfeed(sort_reversed: bool):
 
     Test `get_model_definitions` with models passed in different order.
     """
-    from fastapi._compat import v1
+    from fapi._compat import v1
 
     all_fields = fastapi.openapi.utils.get_fields_from_routes(app.routes)
 

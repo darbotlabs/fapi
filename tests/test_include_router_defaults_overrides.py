@@ -1,9 +1,9 @@
 import warnings
 
 import pytest
-from fastapi import APIRouter, Depends, FastAPI, Response
-from fastapi.responses import JSONResponse
-from fastapi.testclient import TestClient
+from fapi import APIRouter, Depends, FastAPI, Response
+from fapi.responses import JSONResponse
+from fapi.testclient import TestClient
 
 
 class ResponseLevel0(JSONResponse):

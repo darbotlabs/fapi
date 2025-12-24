@@ -88,13 +88,13 @@ def callback() -> None:
 def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     """
     Generate a new docs translation directory for the language LANG.
-    
+
     NOTE: This fork only supports English. Other languages are in purgatory/.
     """
     typer.secho(
         "This fork only supports English documentation. "
         "Other languages have been moved to purgatory/docs/",
-        color=typer.colors.YELLOW
+        color=typer.colors.YELLOW,
     )
     raise typer.Abort()
 
@@ -107,17 +107,17 @@ def build_lang(
 ) -> None:
     """
     Build the docs for a language.
-    
+
     NOTE: This fork only supports English (en).
     """
     if lang != "en":
         typer.secho(
             f"This fork only supports English documentation. "
             f"Language '{lang}' is not available (moved to purgatory/docs/)",
-            color=typer.colors.YELLOW
+            color=typer.colors.YELLOW,
         )
         raise typer.Abort()
-    
+
     insiders_env_file = os.environ.get("INSIDERS_FILE")
     print(f"Insiders file {insiders_env_file}")
     if is_mkdocs_insiders():
@@ -337,7 +337,7 @@ def verify_config() -> None:
 def verify_non_translated() -> None:
     """
     Verify there are no files in the non translatable pages.
-    
+
     NOTE: This fork only supports English, so this check is skipped.
     """
     print("Skipping non-translated pages check (English only) ✅")

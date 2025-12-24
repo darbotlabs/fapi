@@ -1,6 +1,6 @@
 import pytest
-from fastapi import Body, Depends, FastAPI, HTTPException
-from fastapi.testclient import TestClient
+from fapi import Body, Depends, FastAPI, HTTPException
+from fapi.testclient import TestClient
 
 initial_fake_database = {"rick": "Rick Sanchez"}
 

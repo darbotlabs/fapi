@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
+from fapi import FastAPI
+from fapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 app = FastAPI()
 

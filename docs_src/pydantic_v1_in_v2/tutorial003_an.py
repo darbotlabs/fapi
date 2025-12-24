@@ -1,6 +1,6 @@
 from typing import Union
 
-from fastapi import FastAPI
+from fapi import FastAPI
 from pydantic import BaseModel as BaseModelV2
 from pydantic.v1 import BaseModel
 

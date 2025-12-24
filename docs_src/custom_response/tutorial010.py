@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.responses import ORJSONResponse
+from fapi import FastAPI
+from fapi.responses import ORJSONResponse
 
 app = FastAPI(default_response_class=ORJSONResponse)
 

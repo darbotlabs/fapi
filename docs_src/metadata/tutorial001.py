@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fapi import FastAPI
 
 description = """
 ChimichangApp API helps you do awesome stuff. 🚀

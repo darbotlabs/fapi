@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import Depends, FastAPI
+from fapi import Depends, FastAPI
 
 app = FastAPI()
 

@@ -1,7 +1,7 @@
 from datetime import datetime, time, timedelta
 from uuid import UUID
 
-from fastapi import Body, FastAPI
+from fapi import Body, FastAPI
 
 app = FastAPI()
 

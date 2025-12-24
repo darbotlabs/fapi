@@ -1,8 +1,8 @@
 import warnings
 
 import pytest
-from fastapi import FastAPI, File, Form, UploadFile
-from fastapi.dependencies.utils import (
+from fapi import FastAPI, File, Form, UploadFile
+from fapi.dependencies.utils import (
     multipart_incorrect_install_error,
     multipart_not_installed_error,
 )

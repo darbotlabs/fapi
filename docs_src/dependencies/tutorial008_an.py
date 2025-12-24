@@ -1,4 +1,4 @@
-from fastapi import Depends
+from fapi import Depends
 from typing_extensions import Annotated
 
 

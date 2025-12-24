@@ -1,4 +1,4 @@
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from docs_src.events.tutorial003 import (
     app,

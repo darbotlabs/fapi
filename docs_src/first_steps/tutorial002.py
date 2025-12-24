@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fapi import FastAPI
 
 my_awesome_api = FastAPI()
 

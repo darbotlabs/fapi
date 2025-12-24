@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fapi import FastAPI
 
 app = FastAPI(swagger_ui_parameters={"syntaxHighlight": False})
 

@@ -1,7 +1,7 @@
 from typing import Union
 
-from fastapi import Depends, FastAPI
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 app = FastAPI()

@@ -1,6 +1,6 @@
 from typing import Annotated, Union
 
-from fastapi import FastAPI, Path, Query
+from fapi import FastAPI, Path, Query
 
 app = FastAPI()
 

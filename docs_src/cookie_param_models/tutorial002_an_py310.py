@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import Cookie, FastAPI
+from fapi import Cookie, FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()

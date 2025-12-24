@@ -1,8 +1,8 @@
 from typing import Any
 
 import pytest
-from fastapi import Depends, FastAPI, HTTPException
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI, HTTPException
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 

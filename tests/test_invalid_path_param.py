@@ -1,7 +1,7 @@
 from typing import Dict, List, Tuple
 
 import pytest
-from fastapi import FastAPI
+from fapi import FastAPI
 from pydantic import BaseModel
 
 

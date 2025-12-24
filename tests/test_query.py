@@ -1,5 +1,5 @@
 from dirty_equals import IsDict
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from .main import app
 

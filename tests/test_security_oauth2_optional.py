@@ -2,9 +2,9 @@ from typing import Optional
 
 import pytest
 from dirty_equals import IsDict
-from fastapi import Depends, FastAPI, Security
-from fastapi.security import OAuth2, OAuth2PasswordRequestFormStrict
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI, Security
+from fapi.security import OAuth2, OAuth2PasswordRequestFormStrict
+from fapi.testclient import TestClient
 from pydantic import BaseModel
 
 app = FastAPI()

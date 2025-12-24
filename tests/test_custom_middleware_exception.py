@@ -1,9 +1,9 @@
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, FastAPI, File, UploadFile
-from fastapi.exceptions import HTTPException
-from fastapi.testclient import TestClient
+from fapi import APIRouter, FastAPI, File, UploadFile
+from fapi.exceptions import HTTPException
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

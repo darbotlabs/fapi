@@ -2,9 +2,9 @@ from contextvars import ContextVar
 from typing import Any, Dict, Tuple
 
 import pytest
-from fastapi import Depends, FastAPI, WebSocket
-from fastapi.exceptions import FastAPIError
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI, WebSocket
+from fapi.exceptions import FastAPIError
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 global_context: ContextVar[Dict[str, Any]] = ContextVar("global_context", default={})  # noqa: B039

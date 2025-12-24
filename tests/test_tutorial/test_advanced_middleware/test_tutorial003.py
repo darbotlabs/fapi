@@ -1,5 +1,5 @@
-from fastapi.responses import PlainTextResponse
-from fastapi.testclient import TestClient
+from fapi.responses import PlainTextResponse
+from fapi.testclient import TestClient
 
 from docs_src.advanced_middleware.tutorial003 import app
 

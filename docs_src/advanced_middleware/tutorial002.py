@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from fapi import FastAPI
+from fapi.middleware.trustedhost import TrustedHostMiddleware
 
 app = FastAPI()
 

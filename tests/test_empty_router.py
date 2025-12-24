@@ -1,7 +1,7 @@
 import pytest
-from fastapi import APIRouter, FastAPI
-from fastapi.exceptions import FastAPIError
-from fastapi.testclient import TestClient
+from fapi import APIRouter, FastAPI
+from fapi.exceptions import FastAPIError
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

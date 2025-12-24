@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fapi import FastAPI, Query
 from typing_extensions import Annotated
 
 app = FastAPI()

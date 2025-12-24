@@ -1,9 +1,9 @@
 from typing import Any
 
 import orjson
-from fastapi import APIRouter, FastAPI
-from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse
-from fastapi.testclient import TestClient
+from fapi import APIRouter, FastAPI
+from fapi.responses import HTMLResponse, JSONResponse, PlainTextResponse
+from fapi.testclient import TestClient
 
 
 class ORJSONResponse(JSONResponse):

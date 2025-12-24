@@ -1,8 +1,8 @@
 from typing import Optional
 
-from fastapi import FastAPI
-from fastapi.params import Param
-from fastapi.testclient import TestClient
+from fapi import FastAPI
+from fapi.params import Param
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

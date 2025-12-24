@@ -1,6 +1,6 @@
 from typing import Any
 
-from fastapi import FastAPI
+from fapi import FastAPI
 from pydantic import BaseModel, EmailStr
 
 app = FastAPI()

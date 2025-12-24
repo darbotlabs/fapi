@@ -1,8 +1,8 @@
 import gzip
 from typing import Callable, List
 
-from fastapi import Body, FastAPI, Request, Response
-from fastapi.routing import APIRoute
+from fapi import Body, FastAPI, Request, Response
+from fapi.routing import APIRoute
 
 
 class GzipRequest(Request):

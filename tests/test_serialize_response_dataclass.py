@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import List, Optional
 
-from fastapi import FastAPI
-from fastapi.testclient import TestClient
+from fapi import FastAPI
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

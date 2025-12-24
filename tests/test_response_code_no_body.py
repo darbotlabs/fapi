@@ -1,8 +1,8 @@
 import typing
 
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
-from fastapi.testclient import TestClient
+from fapi import FastAPI
+from fapi.responses import JSONResponse
+from fapi.testclient import TestClient
 from pydantic import BaseModel
 
 app = FastAPI()

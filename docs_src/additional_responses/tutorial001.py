@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fapi import FastAPI
+from fapi.responses import JSONResponse
 from pydantic import BaseModel
 
 

@@ -2,9 +2,9 @@ from contextlib import contextmanager
 from typing import Any, Generator
 
 import pytest
-from fastapi import Depends, FastAPI
-from fastapi.responses import StreamingResponse
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI
+from fapi.responses import StreamingResponse
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 

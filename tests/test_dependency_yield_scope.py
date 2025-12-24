@@ -2,10 +2,10 @@ import json
 from typing import Any, Tuple
 
 import pytest
-from fastapi import APIRouter, Depends, FastAPI, HTTPException
-from fastapi.exceptions import FastAPIError
-from fastapi.responses import StreamingResponse
-from fastapi.testclient import TestClient
+from fapi import APIRouter, Depends, FastAPI, HTTPException
+from fapi.exceptions import FastAPIError
+from fapi.responses import StreamingResponse
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 

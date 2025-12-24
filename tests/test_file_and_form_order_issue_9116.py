@@ -7,8 +7,8 @@ from pathlib import Path
 from typing import List
 
 import pytest
-from fastapi import FastAPI, File, Form
-from fastapi.testclient import TestClient
+from fapi import FastAPI, File, Form
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 app = FastAPI()

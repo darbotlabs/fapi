@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from docs_src.custom_response import tutorial009
 from docs_src.custom_response.tutorial009 import app

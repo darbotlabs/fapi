@@ -1,8 +1,8 @@
 from typing import Callable, List
 
-from fastapi import Body, FastAPI, HTTPException, Request, Response
-from fastapi.exceptions import RequestValidationError
-from fastapi.routing import APIRoute
+from fapi import Body, FastAPI, HTTPException, Request, Response
+from fapi.exceptions import RequestValidationError
+from fapi.routing import APIRoute
 
 
 class ValidationErrorLoggingRoute(APIRoute):

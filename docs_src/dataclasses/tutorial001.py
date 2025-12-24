@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Union
 
-from fastapi import FastAPI
+from fapi import FastAPI
 
 
 @dataclass

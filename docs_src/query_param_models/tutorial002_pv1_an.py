@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import FastAPI, Query
+from fapi import FastAPI, Query
 from pydantic import BaseModel, Field
 from typing_extensions import Annotated, Literal
 

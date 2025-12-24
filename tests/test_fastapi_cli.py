@@ -14,7 +14,7 @@ def test_fastapi_cli():
             "coverage",
             "run",
             "-m",
-            "fastapi",
+            "fapi",
             "dev",
             "non_existent_file.py",
         ],

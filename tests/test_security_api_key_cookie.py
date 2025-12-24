@@ -1,6 +1,6 @@
-from fastapi import Depends, FastAPI, Security
-from fastapi.security import APIKeyCookie
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI, Security
+from fapi.security import APIKeyCookie
+from fapi.testclient import TestClient
 from pydantic import BaseModel
 
 app = FastAPI()

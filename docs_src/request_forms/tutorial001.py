@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form
+from fapi import FastAPI, Form
 
 app = FastAPI()
 

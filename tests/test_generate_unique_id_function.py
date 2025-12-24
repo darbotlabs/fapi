@@ -1,9 +1,9 @@
 import warnings
 from typing import List
 
-from fastapi import APIRouter, FastAPI
-from fastapi.routing import APIRoute
-from fastapi.testclient import TestClient
+from fapi import APIRouter, FastAPI
+from fapi.routing import APIRoute
+from fapi.testclient import TestClient
 from pydantic import BaseModel
 
 

@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.middleware.wsgi import WSGIMiddleware
+from fapi import FastAPI
+from fapi.middleware.wsgi import WSGIMiddleware
 from flask import Flask, request
 from markupsafe import escape
 

@@ -1,6 +1,6 @@
 from typing import Union
 
-from fastapi import FastAPI, Path
+from fapi import FastAPI, Path
 from pydantic import BaseModel
 
 app = FastAPI()

@@ -1,5 +1,5 @@
-from fastapi import Body, FastAPI, status
-from fastapi.responses import JSONResponse
+from fapi import Body, FastAPI, status
+from fapi.responses import JSONResponse
 
 app = FastAPI()
 

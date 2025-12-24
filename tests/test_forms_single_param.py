@@ -1,5 +1,5 @@
-from fastapi import FastAPI, Form
-from fastapi.testclient import TestClient
+from fapi import FastAPI, Form
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 app = FastAPI()

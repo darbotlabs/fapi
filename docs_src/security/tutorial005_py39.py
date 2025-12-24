@@ -2,8 +2,8 @@ from datetime import datetime, timedelta, timezone
 from typing import Union
 
 import jwt
-from fastapi import Depends, FastAPI, HTTPException, Security, status
-from fastapi.security import (
+from fapi import Depends, FastAPI, HTTPException, Security, status
+from fapi.security import (
     OAuth2PasswordBearer,
     OAuth2PasswordRequestForm,
     SecurityScopes,

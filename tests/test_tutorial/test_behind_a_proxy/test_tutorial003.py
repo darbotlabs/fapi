@@ -1,5 +1,5 @@
 from dirty_equals import IsOneOf
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from docs_src.behind_a_proxy.tutorial003 import app
 

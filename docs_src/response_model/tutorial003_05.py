@@ -1,7 +1,7 @@
 from typing import Union
 
-from fastapi import FastAPI, Response
-from fastapi.responses import RedirectResponse
+from fapi import FastAPI, Response
+from fapi.responses import RedirectResponse
 
 app = FastAPI()
 

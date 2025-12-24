@@ -2,7 +2,7 @@ import importlib
 from types import ModuleType
 
 import pytest
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from ...utils import needs_py39
 

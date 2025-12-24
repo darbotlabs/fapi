@@ -1,7 +1,7 @@
 import importlib
 
 import pytest
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 from pytest import MonkeyPatch
 
 from ...utils import needs_pydanticv1, needs_pydanticv2

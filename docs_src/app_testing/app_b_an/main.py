@@ -1,6 +1,6 @@
 from typing import Union
 
-from fastapi import FastAPI, Header, HTTPException
+from fapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
 from typing_extensions import Annotated
 

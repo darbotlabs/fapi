@@ -1,7 +1,7 @@
 from typing import List
 
-from fastapi import FastAPI
-from fastapi._compat import PYDANTIC_V2
+from fapi import FastAPI
+from fapi._compat import PYDANTIC_V2
 from pydantic import BaseModel
 
 app = FastAPI()

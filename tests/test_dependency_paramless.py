@@ -1,11 +1,11 @@
 from typing import Union
 
-from fastapi import FastAPI, HTTPException, Security
-from fastapi.security import (
+from fapi import FastAPI, HTTPException, Security
+from fapi.security import (
     OAuth2PasswordBearer,
     SecurityScopes,
 )
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 app = FastAPI()

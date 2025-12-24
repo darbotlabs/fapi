@@ -2,7 +2,7 @@ import sys
 from typing import Any
 
 import pytest
-from fastapi._compat import PYDANTIC_V2
+from fapi._compat import PYDANTIC_V2
 
 from tests.utils import skip_module_if_py_gte_314
 

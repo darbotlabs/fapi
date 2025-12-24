@@ -2,9 +2,9 @@ import json
 from typing import Dict
 
 import pytest
-from fastapi import BackgroundTasks, Depends, FastAPI
-from fastapi.responses import StreamingResponse
-from fastapi.testclient import TestClient
+from fapi import BackgroundTasks, Depends, FastAPI
+from fapi.responses import StreamingResponse
+from fapi.testclient import TestClient
 
 app = FastAPI()
 state = {

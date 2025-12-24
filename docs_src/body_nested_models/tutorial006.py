@@ -1,6 +1,6 @@
 from typing import List, Set, Union
 
-from fastapi import FastAPI
+from fapi import FastAPI
 from pydantic import BaseModel, HttpUrl
 
 app = FastAPI()

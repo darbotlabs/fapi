@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI
+from fapi import Depends, FastAPI
 from typing_extensions import Annotated
 
 app = FastAPI()

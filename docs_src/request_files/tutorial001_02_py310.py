@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile
+from fapi import FastAPI, File, UploadFile
 
 app = FastAPI()
 

@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.responses import PlainTextResponse
+from fapi import FastAPI
+from fapi.responses import PlainTextResponse
 
 app = FastAPI()
 

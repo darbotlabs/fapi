@@ -1,6 +1,6 @@
 from typing import Dict
 
-from fastapi import FastAPI
+from fapi import FastAPI
 
 app = FastAPI()
 

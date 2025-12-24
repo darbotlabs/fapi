@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from fastapi import FastAPI, Security
-from fastapi.security import HTTPBearer
-from fastapi.testclient import TestClient
+from fapi import FastAPI, Security
+from fapi.security import HTTPBearer
+from fapi.testclient import TestClient
 from pydantic import BaseModel
 from typing_extensions import Annotated
 

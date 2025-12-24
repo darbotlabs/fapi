@@ -2,8 +2,8 @@ import gzip
 import json
 
 import pytest
-from fastapi import Request
-from fastapi.testclient import TestClient
+from fapi import Request
+from fapi.testclient import TestClient
 
 from docs_src.custom_request_and_route.tutorial001 import app
 

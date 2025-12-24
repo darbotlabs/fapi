@@ -2,8 +2,8 @@ from contextlib import contextmanager
 from typing import Any, Generator
 
 import pytest
-from fastapi import Depends, FastAPI, WebSocket
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI, WebSocket
+from fapi.testclient import TestClient
 from typing_extensions import Annotated
 
 

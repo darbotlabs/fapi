@@ -1,6 +1,6 @@
-from fastapi import Depends, FastAPI, Security
-from fastapi.security.open_id_connect_url import OpenIdConnect
-from fastapi.testclient import TestClient
+from fapi import Depends, FastAPI, Security
+from fapi.security.open_id_connect_url import OpenIdConnect
+from fapi.testclient import TestClient
 from pydantic import BaseModel
 
 app = FastAPI()

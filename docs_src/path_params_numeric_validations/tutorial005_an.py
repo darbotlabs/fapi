@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Path
+from fapi import FastAPI, Path
 from typing_extensions import Annotated
 
 app = FastAPI()

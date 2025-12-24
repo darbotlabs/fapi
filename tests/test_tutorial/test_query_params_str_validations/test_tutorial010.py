@@ -2,8 +2,8 @@ import importlib
 
 import pytest
 from dirty_equals import IsDict
-from fastapi._compat import PYDANTIC_VERSION_MINOR_TUPLE
-from fastapi.testclient import TestClient
+from fapi._compat import PYDANTIC_VERSION_MINOR_TUPLE
+from fapi.testclient import TestClient
 
 from ...utils import needs_py39, needs_py310
 

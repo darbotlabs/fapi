@@ -1,7 +1,7 @@
 import functools
 
 import pytest
-from fastapi import (
+from fapi import (
     APIRouter,
     Depends,
     FastAPI,
@@ -10,8 +10,8 @@ from fastapi import (
     WebSocketDisconnect,
     status,
 )
-from fastapi.middleware import Middleware
-from fastapi.testclient import TestClient
+from fapi.middleware import Middleware
+from fapi.testclient import TestClient
 
 router = APIRouter()
 prefix_router = APIRouter()

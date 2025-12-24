@@ -1,8 +1,8 @@
 from typing import List
 
 import pytest
-from fastapi import FastAPI
-from fastapi.exceptions import FastAPIError
+from fapi import FastAPI
+from fapi.exceptions import FastAPIError
 
 
 class NonPydanticModel:

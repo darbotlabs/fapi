@@ -1,8 +1,8 @@
 from functools import partial
 from typing import Optional
 
-from fastapi import FastAPI
-from fastapi.testclient import TestClient
+from fapi import FastAPI
+from fapi.testclient import TestClient
 
 
 def main(some_arg, q: Optional[str] = None):

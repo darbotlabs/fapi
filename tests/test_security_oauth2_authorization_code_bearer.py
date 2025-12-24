@@ -1,8 +1,8 @@
 from typing import Optional
 
-from fastapi import FastAPI, Security
-from fastapi.security import OAuth2AuthorizationCodeBearer
-from fastapi.testclient import TestClient
+from fapi import FastAPI, Security
+from fapi.security import OAuth2AuthorizationCodeBearer
+from fapi.testclient import TestClient
 
 app = FastAPI()
 

@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
+from fapi import FastAPI
+from fapi.staticfiles import StaticFiles
 
 app = FastAPI()
 

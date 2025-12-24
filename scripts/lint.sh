@@ -3,6 +3,6 @@
 set -e
 set -x
 
-mypy fastapi
-ruff check fastapi tests docs_src scripts
-ruff format fastapi tests --check
+mypy fapi
+ruff check fapi tests docs_src scripts
+ruff format fapi tests --check

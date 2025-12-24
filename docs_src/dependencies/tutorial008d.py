@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI, HTTPException
+from fapi import Depends, FastAPI, HTTPException
 
 app = FastAPI()
 

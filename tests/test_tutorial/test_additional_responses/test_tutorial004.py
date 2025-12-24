@@ -2,7 +2,7 @@ import os
 import shutil
 
 from dirty_equals import IsDict
-from fastapi.testclient import TestClient
+from fapi.testclient import TestClient
 
 from docs_src.additional_responses.tutorial004 import app
 
