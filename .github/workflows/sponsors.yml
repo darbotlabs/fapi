@@ -15,7 +15,7 @@ env:
 
 jobs:
   job:
-    if: github.repository_owner == 'fastapi'
+    if: github.repository_owner == 'darbotlabs'
     runs-on: ubuntu-latest
     permissions:
       contents: write

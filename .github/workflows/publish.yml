@@ -4,6 +4,16 @@ on:
   release:
     types:
       - created
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package to publish (fapi or fapi-slim)'
+        required: false
+        default: 'fapi'
+        type: choice
+        options:
+          - fapi
+          - fapi-slim
 
 jobs:
   publish:
@@ -11,8 +21,8 @@ jobs:
     strategy:
       matrix:
         package:
-          - fastapi
-          - fastapi-slim
+          - fapi
+          - fapi-slim
     permissions:
       id-token: write
     steps:

@@ -15,8 +15,8 @@ jobs:
     strategy:
       matrix:
         package:
-          - fastapi
-          - fastapi-slim
+          - fapi
+          - fapi-slim
     steps:
       - name: Dump GitHub context
         env:
@@ -36,21 +36,21 @@ jobs:
       - name: Decompress source distribution
         run: |
           cd dist
-          tar xvf fastapi*.tar.gz
+          tar xvf fapi*.tar.gz
       - name: Install test dependencies
         run: |
-          cd dist/fastapi*/
+          cd dist/fapi*/
           pip install -r requirements-tests.txt
         env:
           TIANGOLO_BUILD_PACKAGE: ${{ matrix.package }}
       - name: Run source distribution tests
         run: |
-          cd dist/fastapi*/
+          cd dist/fapi*/
           bash scripts/test.sh
       - name: Build wheel distribution
         run: |
           cd dist
-          pip wheel --no-deps fastapi*.tar.gz
+          pip wheel --no-deps fapi*.tar.gz
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}

@@ -13,7 +13,7 @@ env:
 
 jobs:
   label-approved:
-    if: github.repository_owner == 'fastapi'
+    if: github.repository_owner == 'darbotlabs'
     runs-on: ubuntu-latest
     steps:
     - name: Dump GitHub context
