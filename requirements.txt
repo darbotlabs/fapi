@@ -1,6 +1,7 @@
 -e .[all]
 -r requirements-tests.txt
 -r requirements-docs.txt
+typer>=0.12.0,<1.0.0
 pre-commit >=2.17.0,<5.0.0
 # For generating screenshots
 playwright

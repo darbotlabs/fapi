@@ -1,10 +1,12 @@
 from enum import Enum
 from typing import (
+    TYPE_CHECKING,
     Any,
     Awaitable,
     Callable,
     Coroutine,
     Dict,
+    Iterable,
     List,
     Optional,
     Sequence,
@@ -15,7 +17,10 @@ from typing import (
 
 from annotated_doc import Doc
 from fapi import routing
+from fapi.config import Config
+from fapi.context import ContextMiddleware, context
 from fapi.datastructures import Default, DefaultPlaceholder
+from fapi.events import EventMiddleware, emit
 from fapi.exception_handlers import (
     http_exception_handler,
     request_validation_exception_handler,
@@ -37,7 +42,6 @@ from starlette.applications import Starlette
 from starlette.datastructures import State
 from starlette.exceptions import HTTPException
 from starlette.middleware import Middleware
-from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.errors import ServerErrorMiddleware
 from starlette.middleware.exceptions import ExceptionMiddleware
 from starlette.requests import Request
@@ -47,6 +51,10 @@ from starlette.types import ASGIApp, ExceptionHandler, Lifespan, Receive, Scope,
 from typing_extensions import Annotated, deprecated
 
 AppType = TypeVar("AppType", bound="FastAPI")
+
+if TYPE_CHECKING:
+    from fapi.extensions import Extension
+    from fapi.modules import Module
 
 
 class FastAPI(Starlette):
@@ -840,6 +848,46 @@ class FastAPI(Starlette):
                 """
             ),
         ] = None,
+        config: Annotated[
+            Optional[Dict[str, Any]],
+            Doc(
+                """
+                Optional configuration mapping to load into the app config.
+                """
+            ),
+        ] = None,
+        instance_path: Annotated[
+            Optional[str],
+            Doc(
+                """
+                Optional instance path to load configuration from.
+                """
+            ),
+        ] = None,
+        extensions: Annotated[
+            Optional[Iterable["Extension"]],
+            Doc(
+                """
+                Extensions to register with the application.
+                """
+            ),
+        ] = None,
+        modules: Annotated[
+            Optional[Iterable["Module"]],
+            Doc(
+                """
+                Modules to attach to the application.
+                """
+            ),
+        ] = None,
+        use_context_locals: Annotated[
+            bool,
+            Doc(
+                """
+                Enable context-local proxies for current app and request data.
+                """
+            ),
+        ] = False,
         **extra: Annotated[
             Any,
             Doc(
@@ -870,6 +918,28 @@ class FastAPI(Starlette):
         self.separate_input_output_schemas = separate_input_output_schemas
         self.openapi_external_docs = openapi_external_docs
         self.extra = extra
+        self.config = Config()
+        self.config.load_defaults(
+            {
+                "TITLE": title,
+                "SUMMARY": summary,
+                "DESCRIPTION": description,
+                "VERSION": version,
+            }
+        )
+        if config:
+            self.config.load_defaults(config, namespace="APP")
+        self.load_config_from_env()
+        if instance_path:
+            self.config.load_instance_folder(instance_path)
+        self.context = context
+        self.extensions: List["Extension"] = []
+        self.modules: List["Module"] = []
+        self.tool_registry: List[Dict[str, Any]] = []
+        self.use_context_locals = use_context_locals
+        from fapi.cli import app_cli
+
+        self.cli_app = app_cli
         self.openapi_version: Annotated[
             str,
             Doc(
@@ -993,6 +1063,57 @@ class FastAPI(Starlette):
         )
         self.middleware_stack: Union[ASGIApp, None] = None
         self.setup()
+        for extension in extensions or []:
+            self.register_extension(extension)
+        for module in modules or []:
+            self.register_module(module)
+
+    def load_config_from_env(self, prefix: str = "FAPI_") -> None:
+        """Load configuration from environment variables."""
+        self.config.from_env(prefix)
+
+    def apply_middleware_definition(self, middleware_def: Any) -> None:
+        """Apply a middleware definition to the app."""
+        if isinstance(middleware_def, Middleware):
+            self.user_middleware.append(middleware_def)
+            self.middleware_stack = None
+            return
+        if isinstance(middleware_def, tuple):
+            if len(middleware_def) == 2 and isinstance(middleware_def[1], dict):
+                self.add_middleware(middleware_def[0], **middleware_def[1])
+                return
+            if len(middleware_def) == 1:
+                self.add_middleware(middleware_def[0])
+                return
+        self.add_middleware(middleware_def)
+
+    def register_extension(self, extension: "Extension") -> None:
+        """Register an extension with this application."""
+        self.extensions.append(extension)
+        extension.init_app(self)
+        for router in extension.routers():
+            self.include_router(router)
+        for middleware_def in extension.middleware():
+            self.apply_middleware_definition(middleware_def)
+        for depends, override in extension.dependencies():
+            self.dependency_overrides[depends] = override
+        for hook in extension.lifespan_hooks():
+            self.add_event_handler("startup", hook)
+        for schema in extension.tool_metadata():
+            self.tool_registry.append(schema)
+        defaults = extension.config_defaults()
+        if defaults:
+            self.config.load_defaults(
+                defaults, namespace=extension.__class__.__name__
+            )
+        for command in extension.cli_commands():
+            self.cli_app.command()(command)
+        emit("extension_registered", extension=extension, app=self)
+
+    def register_module(self, module: "Module") -> None:
+        """Attach a module to this application."""
+        module.attach(self)
+        self.modules.append(module)
 
     def build_middleware_stack(self) -> ASGIApp:
         # Duplicate/override from Starlette to add AsyncExitStackMiddleware
@@ -1008,12 +1129,21 @@ class FastAPI(Starlette):
                 exception_handlers[key] = value
 
         middleware = (
-            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]
+            [
+                Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug),
+                Middleware(EventMiddleware),
+            ]
             + self.user_middleware
             + [
                 Middleware(
                     ExceptionMiddleware, handlers=exception_handlers, debug=debug
                 ),
+            ]
+        )
+        if self.use_context_locals:
+            middleware.append(Middleware(ContextMiddleware, app_context=self))
+        middleware.extend(
+            [
                 # Add FastAPI-specific AsyncExitStackMiddleware for closing files.
                 # Before this was also used for closing dependencies with yield but
                 # those now have their own AsyncExitStack, to properly support
