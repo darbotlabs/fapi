@@ -1,32 +1,33 @@
 import subprocess
 import sys
-from unittest.mock import patch
-
-import fastapi.cli
-import pytest
 
 
-def test_fastapi_cli():
+def test_fapi_cli_help() -> None:
     result = subprocess.run(
         [
             sys.executable,
             "-m",
-            "coverage",
-            "run",
-            "-m",
             "fapi",
-            "dev",
-            "non_existent_file.py",
+            "--help",
         ],
         capture_output=True,
         encoding="utf-8",
     )
-    assert result.returncode == 1, result.stdout
-    assert "Path does not exist non_existent_file.py" in result.stdout
+    assert result.returncode == 0, result.stdout
+    assert "FAPI command line interface" in result.stdout
 
 
-def test_fastapi_cli_not_installed():
-    with patch.object(fastapi.cli, "cli_main", None):
-        with pytest.raises(RuntimeError) as exc_info:
-            fastapi.cli.main()
-        assert "To use the fastapi command, please install" in str(exc_info.value)
+def test_fapi_cli_run_help() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "fapi",
+            "run",
+            "--help",
+        ],
+        capture_output=True,
+        encoding="utf-8",
+    )
+    assert result.returncode == 0, result.stdout
+    assert "Run a FAPI app using uvicorn." in result.stdout

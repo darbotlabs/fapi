@@ -42,6 +42,128 @@ The key features are:
 \* estimation based on tests on an internal development team, building
 production applications.
 
+## Modular application patterns
+
+FAPI includes a Flask-style extension protocol, blueprint-style modules, a
+lightweight event bus, context locals, and a unified configuration registry.
+These features encourage factory-based application construction and reusable
+capability bundles.
+
+### Extensions
+
+Extensions contribute routers, middleware, dependencies, config defaults, tool
+metadata, lifecycle hooks, and CLI commands.
+
+```python
+from fapi import Extension, FastAPI
+
+
+class AnalyticsExtension(Extension):
+    def config_defaults(self) -> dict[str, str]:
+        return {"api_key": "change-me"}
+
+    def cli_commands(self):
+        def show_status() -> None:
+            print("Analytics extension ready")
+
+        return [show_status]
+
+
+app = FastAPI(extensions=[AnalyticsExtension()])
+```
+
+### Modules
+
+Modules collect routers, middleware, config defaults, and tool schemas that are
+applied when attached to an app.
+
+```python
+from fapi import Module, FastAPI
+from fapi.routing import APIRouter
+
+module = Module("billing", prefix="/billing", tags=["billing"])
+router = APIRouter()
+
+
+@router.get("/status")
+def status() -> dict[str, str]:
+    return {"state": "ok"}
+
+
+module.add_router(router)
+
+app = FastAPI()
+app.register_module(module)
+```
+
+### Context locals
+
+Enable context locals to access the current application, request, and a per-
+request scratch dictionary.
+
+```python
+from fapi import FastAPI, current_app, g
+
+app = FastAPI(use_context_locals=True)
+
+
+@app.get("/whoami")
+def whoami() -> dict[str, str]:
+    g["visited"] = True
+    return {"app": current_app.title}
+```
+
+### Configuration
+
+The configuration registry merges defaults, environment variables, and instance
+folders. Extensions and modules can register defaults using namespaces.
+
+```python
+from fapi import FastAPI
+
+app = FastAPI(config={"log_level": "info"})
+app.config.load_defaults({"enabled": True}, namespace="auth")
+```
+
+Tool metadata schemas should follow this structure:
+
+```python
+{
+    "name": "my_tool",
+    "version": "1.0",
+    "description": "Describe the tool",
+    "input_schema": {"type": "object"},
+    "output_schema": {"type": "object"},
+}
+```
+
+For streaming endpoints, wrap iterables with `fapi.events.stream_with_events`
+to emit tool lifecycle events.
+
+### CLI
+
+The Typer-based CLI provides common commands and supports extension and module
+subcommands.
+
+```bash
+fapi run --host 127.0.0.1 --port 8000
+fapi list-tools
+fapi show-config
+```
+
+The CLI uses the `create_app` factory. Use `uvicorn module:app` when you want
+to run an explicit application object.
+
+### Factory pattern
+
+Use the factory helper to assemble apps with extensions and modules.
+
+```python
+from fapi import Extension, Module, create_app
+
+app = create_app(extensions=[Extension()], modules=[Module("core")])
+```
+
 ## Complete Development Setup Guide
 
 This section provides step-by-step instructions for setting up a complete
