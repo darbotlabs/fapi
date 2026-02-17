@@ -1,6 +1,6 @@
 import json
 import subprocess
-from typing import Optional
+from typing import Optional, Union
 
 from annotated_doc import Doc
 from fapi.exceptions import HTTPException
@@ -245,6 +245,10 @@ class MicrosoftAuthCLI(SecurityBase):
                 "or (config_path, alias)"
             )
 
+        # Validate timeout is positive
+        if timeout is not None and timeout <= 0:
+            raise ValueError("timeout must be a positive number")
+
         self.client_id = client_id
         self.resource_id = resource_id
         self.tenant_id = tenant_id
@@ -314,7 +318,9 @@ class MicrosoftAuthCLI(SecurityBase):
             # azureauth not found in PATH
             return None
 
-    async def __call__(self, request: Request) -> Optional[MicrosoftAuthToken | str]:
+    async def __call__(
+        self, request: Request
+    ) -> Union[MicrosoftAuthToken, str, None]:
         """
         Validate the authorization header and authenticate using azureauth CLI.
 

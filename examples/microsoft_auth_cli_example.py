@@ -9,6 +9,7 @@ Requirements:
 - Azure AD application registration with appropriate configuration
 """
 
+from datetime import datetime
 from typing import Annotated
 
 from fapi import Depends, FastAPI
@@ -156,7 +157,7 @@ def get_protected_data(
     return {
         "data": "This is protected data",
         "accessed_by": token.user,
-        "access_time": "current_timestamp",
+        "access_time": datetime.now().isoformat(),
     }
 
 

@@ -357,6 +357,32 @@ def test_microsoft_auth_cli_validation_error():
     assert "Either provide (client_id, resource_id, tenant_id)" in str(exc_info.value)
 
 
+def test_microsoft_auth_cli_negative_timeout_error():
+    """Test MicrosoftAuthCLI raises ValueError for negative timeout."""
+    with pytest.raises(ValueError) as exc_info:
+        MicrosoftAuthCLI(
+            client_id="test-client-id",
+            resource_id="test-resource-id",
+            tenant_id="test-tenant-id",
+            timeout=-1.0,
+        )
+
+    assert "timeout must be a positive number" in str(exc_info.value)
+
+
+def test_microsoft_auth_cli_zero_timeout_error():
+    """Test MicrosoftAuthCLI raises ValueError for zero timeout."""
+    with pytest.raises(ValueError) as exc_info:
+        MicrosoftAuthCLI(
+            client_id="test-client-id",
+            resource_id="test-resource-id",
+            tenant_id="test-tenant-id",
+            timeout=0,
+        )
+
+    assert "timeout must be a positive number" in str(exc_info.value)
+
+
 def test_microsoft_auth_cli_openapi_schema():
     """Test that MicrosoftAuthCLI generates correct OpenAPI schema."""
     app = FastAPI()
