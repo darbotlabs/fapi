@@ -6,6 +6,8 @@ from .http import HTTPBasic as HTTPBasic
 from .http import HTTPBasicCredentials as HTTPBasicCredentials
 from .http import HTTPBearer as HTTPBearer
 from .http import HTTPDigest as HTTPDigest
+from .microsoft_auth_cli import MicrosoftAuthCLI as MicrosoftAuthCLI
+from .microsoft_auth_cli import MicrosoftAuthToken as MicrosoftAuthToken
 from .oauth2 import OAuth2 as OAuth2
 from .oauth2 import OAuth2AuthorizationCodeBearer as OAuth2AuthorizationCodeBearer
 from .oauth2 import OAuth2PasswordBearer as OAuth2PasswordBearer
