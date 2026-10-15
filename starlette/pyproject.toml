@@ -53,15 +53,15 @@ dev = [
     "mypy==1.16.1",
     "ruff==0.12.1",
     "types-PyYAML==6.0.12.20250516",
-    "pytest==8.4.1",
+    "pytest==9.0.3",
     "trio==0.30.0",
     # Check dist
     "twine==6.1.0"
 ]
 docs = [
-    "black==25.1.0",
+    "black==26.3.1",
     "mkdocs==1.6.1",
-    "mkdocs-material==9.6.15",
+    "mkdocs-material==9.7.7",
     "mkdocstrings-python==1.16.12",
 ]
 
